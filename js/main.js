@@ -11,9 +11,8 @@ const headerHTML = `
         <li><a href="/services" id="nav-services">Services</a></li>
         <li><a href="/about" id="nav-about">About</a></li>
         <li><a href="/testimonials" id="nav-testimonials">Testimonials</a></li>
-        <li><a href="/quote" id="nav-quote">Get a Quote</a></li>
         <li><a href="/contact" id="nav-contact">Contact</a></li>
-        <li><a href="/quote" class="nav-cta">Get a Quote</a></li>
+        <li><a href="/contact" class="nav-cta">Get a Quote</a></li>
       </ul>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
