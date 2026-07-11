@@ -1,18 +1,18 @@
 const headerHTML = `
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
       <div class="logo-icon">Q</div>
       Quality <span>Business Systems</span>
     </a>
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" id="nav-home">Home</a></li>
-        <li><a href="services.html" id="nav-services">Services</a></li>
-        <li><a href="about.html" id="nav-about">About</a></li>
-        <li><a href="testimonials.html" id="nav-testimonials">Testimonials</a></li>
-        <li><a href="contact.html" id="nav-contact">Contact</a></li>
-        <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+        <li><a href="/" id="nav-home">Home</a></li>
+        <li><a href="/services" id="nav-services">Services</a></li>
+        <li><a href="/about" id="nav-about">About</a></li>
+        <li><a href="/testimonials" id="nav-testimonials">Testimonials</a></li>
+        <li><a href="/contact" id="nav-contact">Contact</a></li>
+        <li><a href="/contact" class="nav-cta">Get a Quote</a></li>
       </ul>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
@@ -29,7 +29,7 @@ const footerHTML = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo" style="color:#fff;">
+        <a href="/" class="logo" style="color:#fff;">
           <div class="logo-icon">Q</div>
           Quality <span style="color:#c44536;">Business Systems</span>
         </a>
@@ -38,19 +38,19 @@ const footerHTML = `
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/testimonials">Testimonials</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="services.html#repair">Repair & Maintenance</a></li>
-          <li><a href="services.html#rental">Equipment Rentals</a></li>
-          <li><a href="services.html#sales">Sales & Products</a></li>
+          <li><a href="/services#repair">Repair & Maintenance</a></li>
+          <li><a href="/services#rental">Equipment Rentals</a></li>
+          <li><a href="/services#sales">Sales & Products</a></li>
         </ul>
       </div>
       <div class="footer-col">
