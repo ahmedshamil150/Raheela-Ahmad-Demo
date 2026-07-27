@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   z-index: 1001;
-  background: #2c2c2c;
+  background: #000000;
   color: #fff;
   text-align: center;
   font-size: 0.78rem;
@@ -112,7 +112,15 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
-  transition: var(--transition);
+  transition: top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-radius 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .site-header.scrolled {
@@ -122,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   right: auto;
   transform: translateX(-50%);
-  width: min(900px, calc(100% - 48px));
+  width: min(1100px, calc(100% - 48px));
   border-radius: 50px;
   border-bottom: none;
   top: calc(var(--banner-height, 34px) + 12px);

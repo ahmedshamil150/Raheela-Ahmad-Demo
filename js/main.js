@@ -119,7 +119,7 @@ const whatsappHTML = `
 </a>
 `;
 
-const demoBannerHTML = `<div class="demo-banner">⚠️ This is a demo site and everything is static</div>`;
+const demoBannerHTML = `<div class="demo-banner">This is a demo site and everything is static</div>`;
 
 document.addEventListener('DOMContentLoaded', function () {
   const headerPlaceholder = document.getElementById('header-placeholder');
