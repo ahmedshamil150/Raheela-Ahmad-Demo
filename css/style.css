@@ -104,32 +104,28 @@ h1, h2, h3, h4, h5, h6 {
 .site-header {
   position: fixed;
   top: var(--banner-height, 34px);
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   height: var(--header-height);
   background: rgba(250, 248, 245, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
+  border-radius: 0;
   z-index: 1000;
   transition: top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               border-radius 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               background 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+              box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .site-header.scrolled {
   background: rgba(255, 255, 255, 0.97);
   box-shadow: 0 8px 32px rgba(79, 122, 100, 0.12);
   height: 60px;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
   width: min(1100px, calc(100% - 48px));
   border-radius: 50px;
   border-bottom: none;
@@ -176,6 +172,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo span {
   color: var(--accent);
+}
+
+.logo-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.logo-accent {
+  color: var(--accent);
+  font-style: italic;
 }
 
 .nav-links {

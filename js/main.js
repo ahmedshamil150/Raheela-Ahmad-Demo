@@ -3,7 +3,7 @@ const headerHTML = `
   <div class="header-inner">
     <a href="index.html" class="logo">
       <div class="logo-icon">R</div>
-      Dr. Raheelaa <span>Ahmad</span>
+      <span class="logo-name">Dr. Raheelaa <span class="logo-accent">Ahmad</span></span>
     </a>
     <nav>
       <ul class="nav-links" id="navLinks">
