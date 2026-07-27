@@ -108,9 +108,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 100%;
   height: var(--header-height);
-  background: rgba(250, 248, 245, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(250, 248, 245, 0.95);
   border-bottom: 1px solid var(--border);
   border-radius: 0;
   z-index: 1000;
@@ -2559,13 +2557,21 @@ div.blog-img img {
     opacity 0.55s ease,
     filter 0.55s ease,
     transform 0.45s ease;
-  will-change: opacity, filter, transform;
 }
 
 .sr-word.sr-visible {
   opacity: 1;
   filter: blur(0px);
   transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .sr-word {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Stagger delays for up to 40 words */
