@@ -119,10 +119,12 @@ const whatsappHTML = `
 </a>
 `;
 
+const demoBannerHTML = `<div class="demo-banner">⚠️ This is a demo site and everything is static</div>`;
+
 document.addEventListener('DOMContentLoaded', function () {
   const headerPlaceholder = document.getElementById('header-placeholder');
   const footerPlaceholder = document.getElementById('footer-placeholder');
-  if (headerPlaceholder) headerPlaceholder.innerHTML = headerHTML;
+  if (headerPlaceholder) headerPlaceholder.innerHTML = demoBannerHTML + headerHTML;
   if (footerPlaceholder) footerPlaceholder.innerHTML = footerHTML;
   document.body.insertAdjacentHTML('beforeend', whatsappHTML);
 
