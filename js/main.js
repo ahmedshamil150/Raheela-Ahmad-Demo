@@ -45,9 +45,9 @@ const header = `
   <nav class="main-nav" aria-label="Primary navigation">
     <ul class="nav-links">
       ${pages.map(([label, href, key]) => `<li><a class="nav-link" data-nav="${key}" href="${href}">${label}</a></li>`).join('')}
-      <li><a class="nav-link nav-appointment" data-nav="book-appointment" href="book-appointment.html">Book an Appointment <span aria-hidden="true">▣</span></a></li>
+      <li><a class="nav-link nav-appointment" data-nav="book-appointment" href="book-appointment.html">Book an Appointment</a></li>
     </ul>
-    <a class="mobile-appointment" href="book-appointment.html">Book an Appointment <span aria-hidden="true">▣</span></a>
+    <a class="mobile-appointment" href="book-appointment.html">Book an Appointment</a>
     <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
       <span></span>
       <span></span>
