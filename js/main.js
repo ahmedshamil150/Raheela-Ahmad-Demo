@@ -1,289 +1,60 @@
-const headerHTML = `
-<header class="site-header" id="siteHeader">
-  <div class="header-inner">
-    <a href="index.html" class="logo">
-      <div class="logo-icon">R</div>
-      <span class="logo-name">Dr. Raheelaa <span class="logo-accent">Ahmad</span></span>
+const pages = [
+  ['About', 'about.html', 'about'],
+  ['Life Coaching', 'life-coaching.html', 'life-coaching'],
+  ['Reiki', 'reiki.html', 'reiki'],
+  ['Individual Therapy', 'individual-therapy.html', 'individual-therapy'],
+  ['Couples Counselling', 'couples-counselling.html', 'couples-counselling'],
+  ['Yoga', 'yoga.html', 'yoga'],
+  ['Numerology Readings', 'numerology-readings.html', 'numerology-readings'],
+  ['Training & Workshops', 'training-workshops.html', 'training-workshops'],
+  ['Blog', 'blog.html', 'blog']
+];
+
+const socialLinks = `
+  <div class="social-links" aria-label="Social links">
+    <a class="social-link" href="#" aria-label="Facebook">f</a>
+    <a class="social-link" href="#" aria-label="Instagram">◎</a>
+    <a class="social-link" href="#" aria-label="YouTube">▶</a>
+    <a class="social-link" href="#" aria-label="LinkedIn">in</a>
+  </div>`;
+
+const header = `
+<header class="site-header">
+  <div class="utility-bar">
+    ${socialLinks}
+    <div class="contact-links">
+      <a class="contact-item" href="tel:+923001234567">
+        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 006.59 6.59l2.2-2.2a1.5 1.5 0 011.53-.36 11.7 11.7 0 003.67.59 1.5 1.5 0 011.5 1.5V20a1.5 1.5 0 01-1.64 1.5A18 18 0 013 3.64 1.5 1.5 0 014.5 2h3.09a1.5 1.5 0 011.5 1.5 11.7 11.7 0 00.59 3.67 1.5 1.5 0 01-.36 1.53z"/></svg>
+        +92 300 1234567
+      </a>
+      <a class="contact-item" href="mailto:info@raheelaahmed.com">
+        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a2 2 0 012 2v10a2 2 0 01-2 2H3a2 2 0 01-2-2V7a2 2 0 012-2zm0 2v.51l9 5.49 9-5.49V7H3zm18 10V9.84l-8.48 5.17a1 1 0 01-1.04 0L3 9.84V17h18z"/></svg>
+        info@raheelaahmed.com
+      </a>
+    </div>
+  </div>
+  <div class="brand-bar">
+    <a class="brand-lockup" href="index.html" aria-label="Raheela Ahmed home">
+      <img class="brand-logo" src="images/logo.png" alt="Raheela Ahmed Life Coach logo">
+      <span class="brand-copy">
+        <span class="brand-name">Raheelaa Ahmad</span>
+        <span class="brand-tagline">LIVE. LIFE. LOVINGLY.</span>
+      </span>
     </a>
-    <nav>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" id="nav-home">Home</a></li>
-        <li><a href="about.html" id="nav-about">About</a></li>
-        <li>
-          <a href="services.html" id="nav-services">Services</a>
-          <ul class="dropdown">
-            <li><a href="services.html#psychotherapy">Psychotherapy</a></li>
-            <li><a href="services.html#trauma">Trauma Therapy</a></li>
-            <li><a href="services.html#couples">Couples Counseling</a></li>
-            <li><a href="services.html#reiki">Reiki Healing</a></li>
-            <li><a href="services.html#hypnotherapy">Hypnotherapy</a></li>
-            <li><a href="services.html#yoga">Yoga &amp; Mindfulness</a></li>
-            <li><a href="services.html#numerology">Numerology Guidance</a></li>
-          </ul>
-        </li>
-        <li><a href="online-therapy.html" id="nav-online-therapy">Online Therapy</a></li>
-        <li><a href="blog.html" id="nav-blog">Blog</a></li>
-        <li>
-          <a href="faqs.html" id="nav-faqs">More</a>
-          <ul class="dropdown">
-            <li><a href="success-stories.html">Success Stories</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </li>
-        <li><a href="book-appointment.html" class="nav-cta" id="nav-book-appointment">Book Appointment</a></li>
-      </ul>
-    </nav>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </div>
-</header>
-`;
-
-const footerHTML = `
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <div class="logo-icon">R</div>
-          Dr. Raheelaa <span style="color:var(--accent);">Ahmad</span>
-        </a>
-        <p>A holistic healing & wellness center integrating professional psychotherapy with mind-body approaches including Reiki, mindfulness, yoga, hypnotherapy, and numerology guidance.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="#" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Raheelaa</a></li>
-          <li><a href="services.html">Our Services</a></li>
-          <li><a href="online-therapy.html">Online Therapy</a></li>
-          <li><a href="success-stories.html">Success Stories</a></li>
-          <li><a href="blog.html">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html#psychotherapy">Psychotherapy</a></li>
-          <li><a href="services.html#trauma">Trauma Therapy</a></li>
-          <li><a href="services.html#couples">Couples Counseling</a></li>
-          <li><a href="services.html#reiki">Reiki Healing</a></li>
-          <li><a href="services.html#hypnotherapy">Hypnotherapy</a></li>
-          <li><a href="services.html#yoga">Yoga & Mindfulness</a></li>
-          <li><a href="services.html#numerology">Numerology</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+923000000000">+92 300 000 0000</a></li>
-          <li><a href="https://wa.me/923000000000" target="_blank" rel="noopener">WhatsApp: +92 300 000 0000</a></li>
-          <li><a href="mailto:hello@raheelaaahmad.com">hello@raheelaaahmad.com</a></li>
-          <li><a href="book-appointment.html">Book Appointment</a></li>
-          <li><a href="faqs.html">FAQs</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Raheelaa Ahmad Holistic Healing & Wellness. All rights reserved.</p>
-      <p>Healing with compassion. Guided with care.</p>
-    </div>
-  </div>
-</footer>
-`;
-
-const whatsappHTML = `
-<a href="https://wa.me/923000000000" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
-`;
-
-const demoBannerHTML = `<div class="demo-banner">This is a demo site and everything is static</div>`;
+  <nav class="main-nav" aria-label="Primary navigation">
+    <ul class="nav-links">
+      ${pages.map(([label, href, key]) => `<li><a class="nav-link" data-nav="${key}" href="${href}">${label}</a></li>`).join('')}
+      <li><a class="nav-link nav-appointment" data-nav="book-appointment" href="book-appointment.html">Book an Appointment <span aria-hidden="true">▣</span></a></li>
+    </ul>
+  </nav>
+</header>`;
 
 document.addEventListener('DOMContentLoaded', function () {
-  const headerPlaceholder = document.getElementById('header-placeholder');
-  const footerPlaceholder = document.getElementById('footer-placeholder');
-  if (headerPlaceholder) headerPlaceholder.innerHTML = demoBannerHTML + headerHTML;
-  if (footerPlaceholder) footerPlaceholder.innerHTML = footerHTML;
-  document.body.insertAdjacentHTML('beforeend', whatsappHTML);
+  const placeholder = document.getElementById('site-header');
+  if (placeholder) placeholder.innerHTML = header;
 
-  const page = document.body.dataset.page || '';
-  if (page) {
-    // Direct nav items
-    const link = document.getElementById('nav-' + page);
-    if (link) {
-      link.classList.add('active');
-    } else {
-      // Pages now nested under "More" dropdown — highlight the More link
-      var morePages = ['success-stories', 'contact'];
-      if (morePages.indexOf(page) !== -1) {
-        var moreLink = document.getElementById('nav-faqs');
-        if (moreLink) moreLink.classList.add('active');
-      }
-    }
-  }
-
-  const header = document.getElementById('siteHeader');
-  const toggle = document.getElementById('mobileToggle');
-  const nav = document.getElementById('navLinks');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      toggle.classList.toggle('active');
-      nav.classList.toggle('open');
-    });
-
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        toggle.classList.remove('active');
-        nav.classList.remove('open');
-      });
-    });
-  }
-
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }, { passive: true });
-
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function (el) {
-    observer.observe(el);
-  });
-
-  const statNumbers = document.querySelectorAll('.stat-num, .hero-stat h3');
-  if (statNumbers.length && !sessionStorage.getItem('statsAnimated')) {
-    const animateValue = function (el, start, end, duration) {
-      let startTimestamp = null;
-      const step = function (timestamp) {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const current = Math.floor(progress * (end - start) + start);
-        el.textContent = current + (el.textContent.includes('%') ? '%' : el.textContent.includes('+') ? '+' : '');
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        }
-      };
-      requestAnimationFrame(step);
-    };
-
-    const heroObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          statNumbers.forEach(function (stat) {
-            const text = stat.textContent;
-            const num = parseInt(text.replace(/[^0-9]/g, ''));
-            if (!isNaN(num)) {
-              stat.textContent = '0';
-              animateValue(stat, 0, num, 1500);
-            }
-          });
-          sessionStorage.setItem('statsAnimated', 'true');
-          heroObserver.disconnect();
-        }
-      });
-    });
-    heroObserver.observe(document.querySelector('.stats-row, .hero-stats, .stat-item'));
-  }
-
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(function (item) {
-    const question = item.querySelector('.faq-question');
-    if (question) {
-      question.addEventListener('click', function () {
-        faqItems.forEach(function (other) {
-          if (other !== item) other.classList.remove('active');
-        });
-        item.classList.toggle('active');
-      });
-    }
-  });
-
-  // ─── Scroll-Blur Word Animation ───
-  // Targets: h1, h2, h3, h4, p, blockquote, li — everything except nav/footer/forms
-  var srSelectors = [
-    '.hero h1', '.hero p',
-    '.section-header h2', '.section-header p',
-    '.page-banner h1', '.page-banner p',
-    '.about-preview h2', '.about-preview p', '.about-preview .quote',
-    '.about-story h2', '.about-story p', '.about-story .about-quote',
-    '.service-card-body h3', '.service-card-body > p',
-    '.service-detail h3', '.detail-content > p',
-    '.feature-card h4', '.feature-card p',
-    '.value-card h4', '.value-card p',
-    '.journey-step h4', '.journey-step p',
-    '.contact-info h3', '.contact-info > p',
-    '.cta-content h2', '.cta-content p',
-    '.testimonial-card blockquote',
-    '.blog-body h3', '.blog-content h3',
-    '.faq-question > span',
-    '.section h2', '.section > .container > p'
-  ];
-
-  function wrapWords(el) {
-    if (el.dataset.srDone) return;
-    el.dataset.srDone = '1';
-    var html = el.innerHTML;
-    // Don't re-wrap if already wrapped or contains child elements (other than <em><strong><br>)
-    var stripped = el.textContent.trim();
-    if (!stripped) return;
-    // Split preserving spaces, wrap each word
-    var newHTML = html.replace(/(^|>)([^<]+)(?=<|$)/g, function(match, prefix, text) {
-      var wrapped = text.replace(/(\S+)/g, '<span class="sr-word">$1</span>');
-      return prefix + wrapped;
-    });
-    el.innerHTML = newHTML;
-    el.classList.add('sr-block');
-  }
-
-  var srObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var words = entry.target.querySelectorAll('.sr-word');
-        words.forEach(function(w) { w.classList.add('sr-visible'); });
-        srObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-  srSelectors.forEach(function(selector) {
-    document.querySelectorAll(selector).forEach(function(el) {
-      wrapWords(el);
-      srObserver.observe(el);
-    });
-  });
+  const page = document.body.dataset.page;
+  const activeLink = document.querySelector(`[data-nav="${page}"]`);
+  if (activeLink) activeLink.classList.add('active');
 });
