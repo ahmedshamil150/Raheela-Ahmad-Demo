@@ -47,6 +47,12 @@ const header = `
       ${pages.map(([label, href, key]) => `<li><a class="nav-link" data-nav="${key}" href="${href}">${label}</a></li>`).join('')}
       <li><a class="nav-link nav-appointment" data-nav="book-appointment" href="book-appointment.html">Book an Appointment <span aria-hidden="true">▣</span></a></li>
     </ul>
+    <a class="mobile-appointment" href="book-appointment.html">Book an Appointment <span aria-hidden="true">▣</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 </header>`;
 
@@ -57,4 +63,27 @@ document.addEventListener('DOMContentLoaded', function () {
   const page = document.body.dataset.page;
   const activeLink = document.querySelector(`[data-nav="${page}"]`);
   if (activeLink) activeLink.classList.add('active');
+
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.main-nav');
+  if (menuToggle && nav) {
+    const navLinks = nav.querySelector('.nav-links');
+    menuToggle.addEventListener('click', function () {
+      const isOpen = nav.classList.toggle('menu-open');
+      navLinks.style.transform = isOpen ? 'translateY(0)' : 'translateY(100%)';
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    nav.querySelectorAll('.nav-links a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('menu-open');
+        navLinks.style.transform = 'translateY(100%)';
+        document.body.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
+  }
 });
