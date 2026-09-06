@@ -1128,8 +1128,18 @@ a {
   }
 
   .hero-actions {
-    align-items: flex-start;
-    flex-direction: column;
+    width: calc(100vw - 52px);
+    align-items: stretch;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .hero-actions .button {
+    min-width: 0;
+    flex: 1 1 0;
+    padding: 12px 8px;
+    font-size: 11px;
+    white-space: nowrap;
   }
 
   .intro-section {
