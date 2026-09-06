@@ -86,4 +86,19 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  document.querySelectorAll('.faq-question').forEach(function (question) {
+    question.addEventListener('click', function () {
+      const item = question.closest('.faq-item');
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item').forEach(function (otherItem) {
+        otherItem.classList.remove('is-open');
+        otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        question.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 });
