@@ -324,39 +324,13 @@ a {
   background: transparent;
 }
 
-.intro-image-wrap::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  right: 9%;
-  bottom: 8px;
-  left: 9%;
-  z-index: 0;
-  background: #777955;
-  border-radius: 58% 42% 48% 52% / 43% 55% 45% 57%;
-  transform: rotate(-4deg);
-}
-
-.intro-image-wrap::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  right: 12%;
-  bottom: 18px;
-  left: 6%;
-  z-index: -1;
-  border: 1px solid rgba(119, 121, 85, 0.38);
-  border-radius: 45% 55% 57% 43% / 54% 43% 57% 46%;
-  transform: rotate(5deg);
-}
-
 .intro-image {
   position: absolute;
   bottom: -88px;
   left: 50%;
   z-index: 1;
   width: auto;
-  height: 520px;
+  height: 660px;
   min-height: 0;
   display: block;
   transform: translateX(-50%);
@@ -1175,7 +1149,7 @@ a {
 
   .intro-image {
     width: auto;
-    height: 430px;
+    height: 550px;
     min-height: 0;
     bottom: -70px;
   }
