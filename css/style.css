@@ -92,7 +92,7 @@ a {
 }
 
 .brand-bar {
-  height: 132px;
+  height: 104px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,8 +106,8 @@ a {
 }
 
 .brand-logo {
-  width: 104px;
-  height: 110px;
+  width: 82px;
+  height: 88px;
   object-fit: contain;
 }
 
@@ -123,7 +123,7 @@ a {
   margin: 0;
   color: #1e1e1e;
   font-family: var(--serif);
-  font-size: 45px;
+  font-size: 39px;
   font-weight: 500;
   line-height: 0.9;
   letter-spacing: 0.01em;
@@ -211,7 +211,7 @@ a {
 
 .hero {
   position: relative;
-  height: calc(100svh - 225px);
+  height: clamp(380px, calc(100svh - 255px), 540px);
   background: url('../images/mainheroimage.webp') center center / cover no-repeat;
 }
 
@@ -268,7 +268,7 @@ a {
 .hero-actions {
   display: flex;
   gap: 12px;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .button {
@@ -318,29 +318,48 @@ a {
 
 .intro-image-wrap {
   position: relative;
-  min-height: 560px;
-  background: var(--cream);
-  overflow: hidden;
+  min-height: 360px;
+  isolation: isolate;
+  overflow: visible;
+  background: transparent;
+}
+
+.intro-image-wrap::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 9%;
+  bottom: 8px;
+  left: 9%;
+  z-index: 0;
+  background: #777955;
+  border-radius: 58% 42% 48% 52% / 43% 55% 45% 57%;
+  transform: rotate(-4deg);
 }
 
 .intro-image-wrap::after {
   content: '';
   position: absolute;
-  right: 18px;
+  top: 2px;
+  right: 12%;
   bottom: 18px;
-  left: 18px;
-  height: 42%;
-  background: linear-gradient(180deg, transparent, rgba(37, 37, 22, 0.18));
-  pointer-events: none;
+  left: 6%;
+  z-index: -1;
+  border: 1px solid rgba(119, 121, 85, 0.38);
+  border-radius: 45% 55% 57% 43% / 54% 43% 57% 46%;
+  transform: rotate(5deg);
 }
 
 .intro-image {
-  width: 100%;
-  height: 100%;
-  min-height: 560px;
+  position: absolute;
+  bottom: -88px;
+  left: 50%;
+  z-index: 1;
+  width: auto;
+  height: 520px;
+  min-height: 0;
   display: block;
-  object-fit: cover;
-  object-position: center top;
+  transform: translateX(-50%);
 }
 
 .intro-content {
@@ -1103,12 +1122,12 @@ a {
 
   .hero {
     min-height: 0;
-    height: calc(100svh - 215px);
+    height: clamp(340px, calc(100svh - 235px), 480px);
     background-position: 58% center;
   }
 
   .hero-copy {
-    top: 36px;
+    top: 24px;
     left: 26px;
   }
 
@@ -1117,7 +1136,7 @@ a {
   }
 
   .hero-kicker {
-    margin-top: 23px;
+    margin-top: 17px;
     font-size: 24px;
   }
 
@@ -1149,10 +1168,16 @@ a {
     padding: 64px 24px 76px;
   }
 
-  .intro-image-wrap,
-  .intro-image {
+  .intro-image-wrap {
     width: 100%;
-    min-height: 430px;
+    min-height: 300px;
+  }
+
+  .intro-image {
+    width: auto;
+    height: 430px;
+    min-height: 0;
+    bottom: -70px;
   }
 
   .intro-content {

@@ -34,8 +34,8 @@ const header = `
     </div>
   </div>
   <div class="brand-bar">
-    <a class="brand-lockup" href="index.html" aria-label="Raheela Ahmed home">
-      <img class="brand-logo" src="images/logo.png" alt="Raheela Ahmed Life Coach logo">
+    <a class="brand-lockup" href="index.html" aria-label="Raheelaa Ahmad home">
+      <img class="brand-logo" src="images/logo.png" alt="Raheelaa Ahmad Life Coach logo">
       <span class="brand-copy">
         <span class="brand-name">Raheelaa Ahmad</span>
       </span>
