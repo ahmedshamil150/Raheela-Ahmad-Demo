@@ -211,13 +211,13 @@ a {
 
 .hero {
   position: relative;
-  height: clamp(380px, calc(100svh - 255px), 540px);
+  height: clamp(390px, calc(100svh - 275px), 470px);
   background: url('../images/mainheroimage.webp') center center / cover no-repeat;
 }
 
 .hero-copy {
   position: absolute;
-  top: clamp(28px, 5vh, 48px);
+  top: clamp(24px, 4vh, 36px);
   left: 5.35vw;
   z-index: 1;
 }
@@ -239,7 +239,7 @@ a {
   margin: 0;
   color: #61704c;
   font-family: var(--serif);
-  font-size: clamp(58px, 5.4vw, 82px);
+  font-size: clamp(56px, 5.2vw, 76px);
   font-weight: 500;
   line-height: 1.06;
   letter-spacing: 0;
@@ -268,12 +268,12 @@ a {
 .hero-actions {
   display: flex;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .button {
   min-width: 182px;
-  padding: 14px 24px;
+  padding: 12px 24px;
   border: 1.5px solid var(--olive);
   border-radius: 24px;
   text-align: center;
@@ -419,7 +419,7 @@ a {
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
@@ -433,6 +433,7 @@ a {
   border-right: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.service-card:nth-child(3n),
 .service-card:last-child {
   border-right: 0;
 }
@@ -1096,7 +1097,7 @@ a {
 
   .hero {
     min-height: 0;
-    height: clamp(340px, calc(100svh - 235px), 480px);
+    height: clamp(360px, calc(100svh - 250px), 420px);
     background-position: 58% center;
   }
 
