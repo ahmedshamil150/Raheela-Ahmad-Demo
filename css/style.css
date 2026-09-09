@@ -550,7 +550,7 @@ a {
 }
 
 .review-card {
-  min-height: 270px;
+  min-height: 0;
   padding: 28px 26px 25px;
   display: flex;
   flex-direction: column;
@@ -572,7 +572,7 @@ a {
 }
 
 .review-card blockquote {
-  margin: 32px 0 28px;
+  margin: 26px 0 28px;
   color: #424238;
   font-family: var(--serif);
   font-size: 24px;
