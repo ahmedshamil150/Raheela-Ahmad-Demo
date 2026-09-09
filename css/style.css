@@ -1140,19 +1140,19 @@ a {
     display: flex;
     flex-direction: column;
     gap: 38px;
-    padding: 64px 24px 76px;
+    padding: 64px 24px 300px;
   }
 
   .intro-image-wrap {
     width: 100%;
-    min-height: 300px;
+    min-height: 350px;
   }
 
   .intro-image {
     width: auto;
-    height: 550px;
+    height: 480px;
     min-height: 0;
-    bottom: -70px;
+    bottom: -30px;
   }
 
   .intro-content {
