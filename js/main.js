@@ -2,10 +2,10 @@ const pages = [
   ['About', 'about.html', 'about'],
   ['Life Coaching', 'life-coaching.html', 'life-coaching'],
   ['Reiki', 'reiki.html', 'reiki'],
-  ['Individual Therapy', 'individual-therapy.html', 'individual-therapy'],
+  ['Physiotherapy', 'individual-therapy.html', 'individual-therapy'],
   ['Couples Counselling', 'couples-counselling.html', 'couples-counselling'],
   ['Yoga', 'yoga.html', 'yoga'],
-  ['Numerology Readings', 'numerology-readings.html', 'numerology-readings'],
+  ['Numerology/Psychic readings', 'numerology-readings.html', 'numerology-readings'],
   ['Training & Workshops', 'training-workshops.html', 'training-workshops'],
   ['Blog', 'blog.html', 'blog']
 ];
