@@ -431,11 +431,11 @@ a {
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(23, 23, 23, 0.14);
-  background: var(--olive);
+  background: #fff;
 }
 
-.service-card:nth-child(even) {
-  background: #fff;
+.service-card:first-child {
+  background: var(--olive);
 }
 
 .service-card:nth-child(3n),
@@ -452,7 +452,7 @@ a {
 
 .service-card h3 {
   margin: 0 0 16px;
-  color: #fffdf8;
+  color: var(--olive-dark);
   font-family: var(--serif);
   font-size: 32px;
   font-weight: 500;
@@ -461,21 +461,26 @@ a {
 
 .service-card > p:not(.service-number) {
   margin: 0;
-  color: rgba(255, 253, 248, 0.72);
+  color: rgba(23, 23, 23, 0.68);
   font-size: 13px;
   line-height: 1.7;
 }
 
-.service-card:nth-child(even) h3 {
-  color: var(--olive-dark);
+.service-card:first-child h3 {
+  color: #fffdf8;
 }
 
-.service-card:nth-child(even) > p:not(.service-number) {
-  color: rgba(23, 23, 23, 0.68);
+.service-card:first-child > p:not(.service-number) {
+  color: rgba(255, 253, 248, 0.72);
 }
 
-.service-card:nth-child(even) .service-number,
-.service-card:nth-child(even) .service-link {
+.service-card:first-child .service-number,
+.service-card:first-child .service-link {
+  color: #d0d19f;
+}
+
+.service-card:not(:first-child) .service-number,
+.service-card:not(:first-child) .service-link {
   color: var(--olive-dark);
 }
 
