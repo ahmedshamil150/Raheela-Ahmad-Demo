@@ -1210,7 +1210,7 @@ a {
 
   .service-card {
     min-height: 0;
-    padding: 24px 0 30px;
+    padding: 24px 20px 30px;
     border-right: 0;
     border-bottom: 1px solid rgba(23, 23, 23, 0.14);
   }
