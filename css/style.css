@@ -430,7 +430,12 @@ a {
   padding: 25px 22px 28px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-right: 1px solid rgba(23, 23, 23, 0.14);
+  background: var(--olive);
+}
+
+.service-card:nth-child(even) {
+  background: #fff;
 }
 
 .service-card:nth-child(3n),
@@ -459,6 +464,19 @@ a {
   color: rgba(255, 253, 248, 0.72);
   font-size: 13px;
   line-height: 1.7;
+}
+
+.service-card:nth-child(even) h3 {
+  color: var(--olive-dark);
+}
+
+.service-card:nth-child(even) > p:not(.service-number) {
+  color: rgba(23, 23, 23, 0.68);
+}
+
+.service-card:nth-child(even) .service-number,
+.service-card:nth-child(even) .service-link {
+  color: var(--olive-dark);
 }
 
 .service-link {
@@ -1194,7 +1212,7 @@ a {
     min-height: 0;
     padding: 24px 0 30px;
     border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid rgba(23, 23, 23, 0.14);
   }
 
   .service-card:last-child {
