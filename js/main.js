@@ -2,7 +2,7 @@ const pages = [
   ['About', 'about.html', 'about'],
   ['Life Coaching', 'life-coaching.html', 'life-coaching'],
   ['Reiki', 'reiki.html', 'reiki'],
-  ['Physiotherapy', 'individual-therapy.html', 'individual-therapy'],
+  ['PHYSIOTHERAPY', 'individual-therapy.html', 'individual-therapy'],
   ['Couples Counselling', 'couples-counselling.html', 'couples-counselling'],
   ['Yoga', 'yoga.html', 'yoga'],
   ['Numerology/Psychic readings', 'numerology-readings.html', 'numerology-readings'],
