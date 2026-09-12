@@ -237,7 +237,6 @@ a {
 
 .hero h1 {
   margin: 0;
-  color: #61704c;
   font-family: var(--serif);
   font-size: clamp(56px, 5.2vw, 76px);
   font-weight: 500;
@@ -245,9 +244,24 @@ a {
   letter-spacing: 0;
 }
 
-.hero-title-space {
-  display: inline-block;
-  transform: translateY(-0.12em);
+.masked-heading {
+  --media-x: 0px;
+  --media-y: 0px;
+  width: max-content;
+  max-width: 84vw;
+}
+
+.masked-heading__word {
+  width: max-content;
+  display: block;
+  color: transparent;
+  background-image: linear-gradient(rgba(83, 99, 60, 0.68), rgba(83, 99, 60, 0.68)), url('../images/mainheroimage.webp');
+  background-position: calc(50% + var(--media-x)) calc(50% + var(--media-y));
+  background-size: auto 470px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  will-change: transform, background-position;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-kicker {
@@ -387,23 +401,23 @@ a {
 }
 
 .services-section {
-  padding: 94px max(32px, 6vw) 106px;
-  color: #f8f4ed;
-  background: #292b22;
+  padding: 88px max(24px, 5vw) 96px;
+  color: var(--ink);
+  background: #f7f3e9;
 }
 
 .services-heading {
   max-width: 1240px;
-  margin: 0 auto 48px;
+  margin: 0 auto 42px;
 }
 
 .services-heading .intro-eyebrow {
-  color: #bfc09a;
+  color: var(--olive-dark);
 }
 
 .services-heading h2 {
   margin: 0;
-  color: #fffdf8;
+  color: var(--ink);
   font-family: var(--serif);
   font-size: clamp(42px, 5vw, 68px);
   font-weight: 500;
@@ -411,7 +425,7 @@ a {
 }
 
 .services-heading h2 em {
-  color: #c7c795;
+  color: var(--olive-dark);
   font-style: normal;
 }
 
@@ -420,37 +434,48 @@ a {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  gap: 24px;
 }
 
 .service-card {
-  min-height: 350px;
-  padding: 25px 22px 28px;
+  min-height: 590px;
+  padding: 14px 14px 30px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid rgba(23, 23, 23, 0.14);
-  background: #fff;
+  border: 1px solid rgba(23, 23, 23, 0.07);
+  border-radius: 18px;
+  background: #fffdf9;
+  box-shadow: 0 8px 22px rgba(71, 71, 47, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.service-card:first-child {
+.service-card-image {
+  width: 100%;
+  aspect-ratio: 1.45;
+  display: block;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.service-card:nth-child(odd) {
   background: var(--olive);
 }
 
-.service-card:nth-child(3n),
-.service-card:last-child {
-  border-right: 0;
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(71, 71, 47, 0.12);
 }
 
 .service-number {
-  margin: 0 0 46px;
-  color: #aeb080;
+  padding: 0 12px;
+  margin: 0 0 52px;
+  color: rgba(102, 104, 71, 0.7);
   font-size: 11px;
   letter-spacing: 0.18em;
 }
 
 .service-card h3 {
+  padding: 0 12px;
   margin: 0 0 16px;
   color: var(--olive-dark);
   font-family: var(--serif);
@@ -460,31 +485,34 @@ a {
 }
 
 .service-card > p:not(.service-number) {
+  padding: 0 12px;
   margin: 0;
   color: rgba(23, 23, 23, 0.68);
   font-size: 13px;
   line-height: 1.7;
 }
 
-.service-card:first-child h3 {
+.service-card:nth-child(odd) h3 {
   color: #fffdf8;
 }
 
-.service-card:first-child > p:not(.service-number) {
+.service-card:nth-child(odd) > p:not(.service-number) {
   color: rgba(255, 253, 248, 0.72);
 }
 
-.service-card:first-child .service-number,
-.service-card:first-child .service-link {
-  color: #d0d19f;
+.service-card:nth-child(odd) .service-number,
+.service-card:nth-child(odd) .service-link {
+  color: #e2e3bd;
 }
 
-.service-card:not(:first-child) .service-number,
-.service-card:not(:first-child) .service-link {
+.service-card:nth-child(even) .service-number,
+.service-card:nth-child(even) .service-link {
   color: var(--olive-dark);
 }
 
 .service-link {
+  margin-right: 12px;
+  margin-left: 12px;
   margin-top: auto;
   padding-top: 28px;
   color: #d0d19f;
@@ -1133,6 +1161,11 @@ a {
     font-size: clamp(52px, 16vw, 72px);
   }
 
+  .masked-heading {
+    max-width: calc(100vw - 52px);
+    background-size: auto 420px;
+  }
+
   .hero-kicker {
     margin-top: 17px;
     font-size: 24px;
@@ -1217,11 +1250,11 @@ a {
     min-height: 0;
     padding: 24px 20px 30px;
     border-right: 0;
-    border-bottom: 1px solid rgba(23, 23, 23, 0.14);
+    border-bottom: 0;
   }
 
-  .service-card:last-child {
-    border-bottom: 0;
+  .service-card + .service-card {
+    margin-top: 2px;
   }
 
   .service-number {
