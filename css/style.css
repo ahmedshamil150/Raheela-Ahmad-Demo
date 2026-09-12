@@ -217,8 +217,8 @@ a {
 
 .hero-copy {
   position: absolute;
-  top: clamp(24px, 4vh, 36px);
-  left: 5.35vw;
+  top: clamp(38px, 5vh, 52px);
+  left: 6.5vw;
   z-index: 1;
 }
 
@@ -1153,7 +1153,7 @@ a {
   }
 
   .hero-copy {
-    top: 24px;
+    top: 34px;
     left: 26px;
   }
 
