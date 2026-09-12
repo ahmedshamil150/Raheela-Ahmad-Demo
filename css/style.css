@@ -438,7 +438,7 @@ a {
 }
 
 .service-card {
-  min-height: 590px;
+  min-height: 560px;
   padding: 14px 14px 30px;
   display: flex;
   flex-direction: column;
@@ -476,7 +476,7 @@ a {
 
 .service-card h3 {
   padding: 0 12px;
-  margin: 0 0 16px;
+  margin: 20px 0 16px;
   color: var(--olive-dark);
   font-family: var(--serif);
   font-size: 32px;
@@ -1248,7 +1248,7 @@ a {
 
   .service-card {
     min-height: 0;
-    padding: 24px 20px 30px;
+    padding: 20px 20px 24px;
     border-right: 0;
     border-bottom: 0;
   }
@@ -1262,6 +1262,7 @@ a {
   }
 
   .service-card h3 {
+    margin-top: 16px;
     font-size: 35px;
   }
 
