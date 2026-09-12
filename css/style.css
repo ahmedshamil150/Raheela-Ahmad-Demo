@@ -457,10 +457,6 @@ a {
   border-radius: 14px;
 }
 
-.service-card:nth-child(odd) {
-  background: var(--olive);
-}
-
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 28px rgba(71, 71, 47, 0.12);
@@ -492,21 +488,8 @@ a {
   line-height: 1.7;
 }
 
-.service-card:nth-child(odd) h3 {
-  color: #fffdf8;
-}
-
-.service-card:nth-child(odd) > p:not(.service-number) {
-  color: rgba(255, 253, 248, 0.72);
-}
-
-.service-card:nth-child(odd) .service-number,
-.service-card:nth-child(odd) .service-link {
-  color: #e2e3bd;
-}
-
-.service-card:nth-child(even) .service-number,
-.service-card:nth-child(even) .service-link {
+.service-card .service-number,
+.service-card .service-link {
   color: var(--olive-dark);
 }
 
