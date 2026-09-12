@@ -59,50 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const placeholder = document.getElementById('site-header');
   if (placeholder) placeholder.innerHTML = header;
 
-  const maskedHeading = document.querySelector('.masked-heading');
-  if (maskedHeading) {
-    const headingWords = maskedHeading.querySelectorAll('.masked-heading__word');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let clock = 0;
-    let lastTime = performance.now();
-
-    const updateMedia = function (time) {
-      const delta = Math.min(0.05, (time - lastTime) / 1000);
-      lastTime = time;
-      clock += delta;
-      const driftX = reducedMotion ? 0 : Math.sin(clock * 0.21) * 18;
-      const driftY = reducedMotion ? 0 : Math.cos(clock * 0.17) * 11;
-      currentX += (targetX + driftX - currentX) * 0.08;
-      currentY += (targetY + driftY - currentY) * 0.08;
-      maskedHeading.style.setProperty('--media-x', `${currentX.toFixed(2)}px`);
-      maskedHeading.style.setProperty('--media-y', `${currentY.toFixed(2)}px`);
-      requestAnimationFrame(updateMedia);
-    };
-
-    maskedHeading.addEventListener('pointermove', function (event) {
-      if (reducedMotion) return;
-      const bounds = maskedHeading.getBoundingClientRect();
-      const normalizedX = ((event.clientX - bounds.left) / (bounds.width || 1)) * 2 - 1;
-      const normalizedY = ((event.clientY - bounds.top) / (bounds.height || 1)) * 2 - 1;
-      targetX = Math.max(-1, Math.min(1, normalizedX)) * -26;
-      targetY = Math.max(-1, Math.min(1, normalizedY)) * -26;
-    });
-
-    maskedHeading.addEventListener('pointerleave', function () {
-      targetX = 0;
-      targetY = 0;
-    });
-
-    headingWords.forEach(function (word, index) {
-      word.style.transitionDelay = `${index * 90}ms`;
-    });
-    requestAnimationFrame(updateMedia);
-  }
-
   const page = document.body.dataset.page;
   const activeLink = document.querySelector(`[data-nav="${page}"]`);
   if (activeLink) activeLink.classList.add('active');
