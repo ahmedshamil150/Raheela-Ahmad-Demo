@@ -1,17 +1,166 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book an Appointment | Raheelaa Ahmad</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/masked-heading.css">
+  <link rel="stylesheet" href="css/interactive.css"><link rel="stylesheet" href="css/animations.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body data-page="book-appointment">
   <div id="site-header"></div>
-  <main class="blank-page"></main>
-  <script src="js/main.js" defer></script>
+  <main class="blank-page"><section class="material-hero"><p class="intro-eyebrow">OFFERINGS</p><div class="masked-heading-init" data-heading-text="Choose the support that feels right for you." data-heading-src="images/mainheroimage.webp" data-heading-reveal="rise" data-heading-trigger="view"></div></section><section class="material-section reveal"><div class="offerings-grid"><div class="offering-card"><h3>Yoga</h3><ul><li>Personal yoga sessions</li><li>Therapeutic yoga</li><li>Group &amp; corporate yoga</li><li>Meditation &amp; breathwork</li></ul><a href="#booking-form" class="service-book-link">Book Yoga</a></div><div class="offering-card"><h3>Reiki</h3><ul><li>Complete Reiki healing</li><li>Chakra balancing</li><li>Distance Reiki</li><li>Corporate &amp; group sessions</li><li>Candle Healing</li></ul><a href="#booking-form" class="service-book-link">Book Reiki</a></div><div class="offering-card"><h3>Numerology</h3><ul><li>Full chart reading</li><li>Three-question reading</li><li>Career numerology</li><li>Lucky numbers &amp; remedies</li></ul><a href="#booking-form" class="service-book-link">Book Reading</a></div><div class="offering-card"><h3>Psychic Readings</h3><ul><li>Tarot card reading</li><li>Intuitive psychic reading</li><li>Guidance on life areas</li></ul><a href="#booking-form" class="service-book-link">Book Reading</a></div><div class="offering-card"><h3>Psychotherapy</h3><ul><li>Individual therapy</li><li>Couples counselling</li><li>Grief therapy</li><li>Trauma &amp; anxiety support</li></ul><a href="#booking-form" class="service-book-link">Book Session</a></div><div class="offering-card"><h3>Life Coaching</h3><ul><li>Personal growth</li><li>Career &amp; financial coaching</li><li>Relationship coaching</li><li>Wellness coaching</li></ul><a href="#booking-form" class="service-book-link">Book Coaching</a></div></div></section><section class="cta-section reveal" style="background:var(--olive-dark);color:#fff;">
+    <h2 style="color:#fff;">Book Your Session</h2>
+    <p style="color:rgba(255,255,255,0.75);">Choose the support that feels right for you and take the next step.</p>
+  </section>
+  <section class="material-section reveal">
+    <div class="booking-form-wrap">
+      <h3>Request an Appointment</h3>
+      <form id="booking-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="book-name">Full Name</label>
+            <input type="text" id="book-name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="book-email">Email</label>
+            <input type="email" id="book-email" name="email" required placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="book-phone">Phone</label>
+            <input type="tel" id="book-phone" name="phone" placeholder="+92 300 1234567">
+          </div>
+          <div class="form-group">
+            <label for="book-service">Service</label>
+            <select id="book-service" name="service" required>
+              <option value="">Select a service...</option>
+              <optgroup label="Yoga">
+                <option>Personal Yoga Session</option>
+                <option>Therapeutic Yoga</option>
+                <option>Group Yoga</option>
+                <option>Corporate Yoga</option>
+                <option>Meditation &amp; Breathwork</option>
+              </optgroup>
+              <optgroup label="Reiki">
+                <option>Reiki Healing Session</option>
+                <option>Distance Reiki</option>
+                <option>Chakra Balancing</option>
+                <option>Group Reiki</option>
+                <option>Corporate Reiki</option>
+                <option>Candle Healing</option>
+              </optgroup>
+              <optgroup label="Psychotherapy">
+                <option>Individual Psychotherapy</option>
+                <option>Couples Counselling</option>
+                <option>Grief Therapy</option>
+              </optgroup>
+              <optgroup label="Life Coaching">
+                <option>Life Coaching</option>
+                <option>Wellness Coaching</option>
+                <option>Career Coaching</option>
+                <option>Relationship Coaching</option>
+              </optgroup>
+              <optgroup label="Numerology &amp; Readings">
+                <option>Full Numerology Chart</option>
+                <option>Three-Question Reading</option>
+                <option>Career Numerology</option>
+                <option>Psychic Reading</option>
+                <option>Tarot Card Reading</option>
+              </optgroup>
+              <optgroup label="Training">
+                <option>Reiki Certification (Level 1, 2, Master)</option>
+                <option>Emotional Release Therapy Workshop</option>
+                <option>Sufi Breathwork Circle</option>
+                <option>Chakra Healing &amp; Manifestation</option>
+                <option>Couples Alignment Workshop</option>
+                <option>Numerology Workshop</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="book-date">Preferred Date</label>
+            <input type="date" id="book-date" name="date">
+          </div>
+          <div class="form-group">
+            <label for="book-time">Preferred Time</label>
+            <select id="book-time" name="time">
+              <option value="">Select a time...</option>
+              <option>Morning (9am - 12pm)</option>
+              <option>Afternoon (12pm - 4pm)</option>
+              <option>Evening (4pm - 8pm)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="book-location">Session Format</label>
+          <select id="book-location" name="location">
+            <option>In Person (Lahore)</option>
+            <option>Online (Worldwide)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="book-message">Your Message</label>
+          <textarea id="book-message" name="message" placeholder="Tell us briefly what you'd like support with..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request</button>
+        <p class="form-note">We will confirm your appointment within 24 hours via email or WhatsApp.</p>
+      </form>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="footer-lockup" href="index.html">
+          <img src="images/logo.png" alt="Raheelaa Ahmad logo">
+          <span><strong>Raheelaa Ahmad</strong></span>
+        </a>
+        <p>A happy healing space for body, mind and soul.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.5 15.5v-7L16 12l-6.5 3.5z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="about.html">About</a>
+        <a href="free-resources.html">Free Resources</a>
+        <a href="life-coaching.html">Life Coaching</a>
+        <a href="individual-therapy.html">Psychotherapy</a>
+        <a href="reiki.html">Reiki</a>
+      </div>
+      <div class="footer-column">
+        <h3>Continue</h3>
+        <a href="yoga.html">Yoga</a>
+        <a href="numerology-readings.html">Numerology</a>
+        <a href="training-workshops.html">Training &amp; Workshops</a>
+
+        <a href="book-appointment.html">Book an Appointment</a>
+      </div>
+      <div class="footer-column footer-contact">
+        <h3>Get in touch</h3>
+        <a href="tel:+923001234567">+92 300 1234567</a>
+        <a href="mailto:info@raheelaahmed.com">info@raheelaahmed.com</a>
+        <a href="https://wa.me/923001234567" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Raheelaa Ahmad. All rights reserved.</span>
+      <a href="https://maps.app.goo.gl/JcrNkAEcWsWQtZV39" target="_blank" rel="noopener">Find us on Google</a>
+    </div>
+  </footer>
+<script src="js/main.js" defer></script><script src="js/masked-heading.js" defer></script><script src="js/scroll-reveal.js" defer></script>
 </body>
 </html>
+
+
+

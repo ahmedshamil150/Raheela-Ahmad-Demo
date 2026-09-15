@@ -12,10 +12,10 @@ const pages = [
 
 const socialLinks = `
   <div class="social-links" aria-label="Social links">
-    <a class="social-link" href="#" aria-label="Facebook">f</a>
-    <a class="social-link" href="#" aria-label="Instagram">◎</a>
-    <a class="social-link" href="#" aria-label="YouTube">▶</a>
-    <a class="social-link" href="#" aria-label="LinkedIn">in</a>
+    <a class="social-link" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+    <a class="social-link" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+    <a class="social-link" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.5 15.5v-7L16 12l-6.5 3.5z"/></svg></a>
+    <a class="social-link" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
   </div>`;
 
 const header = `
@@ -100,5 +100,56 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  // Compact sticky navbar
+  var compactNav = document.createElement('div');
+  compactNav.className = 'site-header-compact';
+  compactNav.innerHTML = '<div class="compact-bar">' +
+    '<a class="compact-brand" href="index.html" aria-label="Raheelaa Ahmad home">' +
+      '<img src="images/logo.png" alt="Raheelaa Ahmad logo">' +
+      '<span>Raheelaa Ahmad</span>' +
+    '</a>' +
+    '<nav class="compact-nav" aria-label="Compact navigation">' +
+      pages.map(function (p) {
+        return '<a href="' + p[1] + '">' + p[0] + '</a>';
+      }).join('') +
+      '<a class="compact-book" href="book-appointment.html">Book Now</a>' +
+    '</nav>' +
+    '<button class="compact-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">' +
+      '<span></span><span></span><span></span>' +
+    '</button>' +
+  '</div>';
+  document.body.appendChild(compactNav);
+
+  // Mobile menu toggle for compact nav
+  var compactToggle = compactNav.querySelector('.compact-menu-toggle');
+  var compactNavEl = compactNav.querySelector('.compact-nav');
+  if (compactToggle && compactNavEl) {
+    compactToggle.addEventListener('click', function () {
+      var isOpen = compactNavEl.classList.toggle('menu-open');
+      compactToggle.setAttribute('aria-expanded', String(isOpen));
+      compactToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    compactNavEl.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        compactNavEl.classList.remove('menu-open');
+        compactToggle.setAttribute('aria-expanded', 'false');
+        compactToggle.setAttribute('aria-label', 'Open menu');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  }
+
+  var siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    var headerObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        compactNav.classList.toggle('is-visible', !entry.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: '-1px 0px 0px 0px' });
+    headerObserver.observe(siteHeader);
+  }
 
 });

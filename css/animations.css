@@ -1,0 +1,427 @@
+/* Animations & Micro-interactions */
+
+/* === Scroll Reveal Base === */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delay utility */
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-delay-5 { transition-delay: 0.40s; }
+.reveal-delay-6 { transition-delay: 0.48s; }
+
+/* === Grid Stagger Children === */
+.services-grid .service-card,
+.benefits-grid .benefit-card,
+.steps-grid .step-card,
+.offerings-grid .offering-card,
+.material-grid article {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.services-grid.is-visible .service-card,
+.benefits-grid.is-visible .benefit-card,
+.steps-grid.is-visible .step-card,
+.offerings-grid.is-visible .offering-card,
+.material-grid.is-visible article {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services-grid.is-visible .service-card:nth-child(1),
+.benefits-grid.is-visible .benefit-card:nth-child(1),
+.steps-grid.is-visible .step-card:nth-child(1),
+.offerings-grid.is-visible .offering-card:nth-child(1),
+.material-grid.is-visible article:nth-child(1) { transition-delay: 0.05s; }
+
+.services-grid.is-visible .service-card:nth-child(2),
+.benefits-grid.is-visible .benefit-card:nth-child(2),
+.steps-grid.is-visible .step-card:nth-child(2),
+.offerings-grid.is-visible .offering-card:nth-child(2),
+.material-grid.is-visible article:nth-child(2) { transition-delay: 0.12s; }
+
+.services-grid.is-visible .service-card:nth-child(3),
+.benefits-grid.is-visible .benefit-card:nth-child(3),
+.steps-grid.is-visible .step-card:nth-child(3),
+.offerings-grid.is-visible .offering-card:nth-child(3),
+.material-grid.is-visible article:nth-child(3) { transition-delay: 0.19s; }
+
+.services-grid.is-visible .service-card:nth-child(4),
+.benefits-grid.is-visible .benefit-card:nth-child(4),
+.steps-grid.is-visible .step-card:nth-child(4),
+.offerings-grid.is-visible .offering-card:nth-child(4),
+.material-grid.is-visible article:nth-child(4) { transition-delay: 0.26s; }
+
+.services-grid.is-visible .service-card:nth-child(5),
+.benefits-grid.is-visible .benefit-card:nth-child(5),
+.offerings-grid.is-visible .offering-card:nth-child(5) { transition-delay: 0.33s; }
+
+.services-grid.is-visible .service-card:nth-child(6),
+.benefits-grid.is-visible .benefit-card:nth-child(6),
+.offerings-grid.is-visible .offering-card:nth-child(6) { transition-delay: 0.40s; }
+
+/* Also reveal the parent grids */
+.services-grid,
+.benefits-grid,
+.steps-grid,
+.offerings-grid,
+.material-grid {
+  opacity: 1;
+}
+
+/* === Review Cards Stagger === */
+.reviews-grid .review-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reviews-grid.is-visible .review-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reviews-grid.is-visible .review-card:nth-child(1) { transition-delay: 0.08s; }
+.reviews-grid.is-visible .review-card:nth-child(2) { transition-delay: 0.18s; }
+.reviews-grid.is-visible .review-card:nth-child(3) { transition-delay: 0.28s; }
+
+.reviews-grid { opacity: 1; }
+
+/* === FAQ Items Stagger === */
+.faq-list .faq-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-list.is-visible .faq-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-list.is-visible .faq-item:nth-child(1) { transition-delay: 0.05s; }
+.faq-list.is-visible .faq-item:nth-child(2) { transition-delay: 0.10s; }
+.faq-list.is-visible .faq-item:nth-child(3) { transition-delay: 0.15s; }
+.faq-list.is-visible .faq-item:nth-child(4) { transition-delay: 0.20s; }
+.faq-list.is-visible .faq-item:nth-child(5) { transition-delay: 0.25s; }
+.faq-list.is-visible .faq-item:nth-child(6) { transition-delay: 0.30s; }
+
+.faq-list { opacity: 1; }
+
+/* === Workshop Gallery Stagger === */
+.workshop-gallery .workshop-gallery-item {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workshop-gallery.is-visible .workshop-gallery-item {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(1) { transition-delay: 0.05s; }
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(2) { transition-delay: 0.10s; }
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(3) { transition-delay: 0.15s; }
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(4) { transition-delay: 0.20s; }
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(5) { transition-delay: 0.25s; }
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(6) { transition-delay: 0.30s; }
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(7) { transition-delay: 0.35s; }
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(8) { transition-delay: 0.40s; }
+.workshop-gallery.is-visible .workshop-gallery-item:nth-child(9) { transition-delay: 0.45s; }
+
+.workshop-gallery { opacity: 1; }
+
+/* === Button Enhancements === */
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.button:hover::after {
+  transform: translateY(0);
+}
+
+.button-solid {
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.button-solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(54, 57, 34, 0.25);
+}
+
+.button-solid:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(54, 57, 34, 0.15);
+}
+
+/* === Card Lift Effect === */
+.service-card,
+.step-card,
+.benefit-card,
+.offering-card,
+.review-card,
+.resource-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover,
+.step-card:hover,
+.benefit-card:hover,
+.offering-card:hover,
+.review-card:hover,
+.resource-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(71, 71, 47, 0.12);
+}
+
+/* === Nav Link Underline Animation === */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1.5px;
+  background: var(--olive);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* === Footer Link Hover === */
+.footer-column a {
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-column a:hover {
+  color: #fffdf8;
+  transform: translateX(4px);
+}
+
+/* === Social Link Pulse === */
+.social-link {
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.12);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* === FAQ Accordion Enhanced === */
+.faq-question {
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: #c7c795;
+}
+
+.faq-item.is-open .faq-question {
+  color: #c7c795;
+}
+
+/* === Page Load Animation === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.material-hero {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* === Floating CTA Pulse === */
+@keyframes gentlePulse {
+  0%, 100% { box-shadow: 0 7px 18px rgba(54, 57, 34, 0.13); }
+  50% { box-shadow: 0 7px 24px rgba(54, 57, 34, 0.22); }
+}
+
+.button-solid {
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+.button-solid:hover {
+  animation: none;
+}
+
+/* === Tag Pill Hover === */
+.tag-pill {
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.tag-pill:hover {
+  background: var(--olive);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* === Workshop Gallery Enhanced === */
+.workshop-gallery-item {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workshop-gallery-item:hover {
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+.workshop-gallery-item img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workshop-gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* === Timeline Item Animation === */
+.timeline-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* === Offering Card Book Link === */
+.offering-card .service-book-link {
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.offering-card .service-book-link:hover {
+  background: var(--olive);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* === Material Section Headings === */
+.material-section h2 {
+  transition: color 0.2s ease;
+}
+
+.material-section h2:hover {
+  color: var(--olive);
+}
+
+/* === WhatsApp Button Glow === */
+.button-whatsapp {
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-whatsapp:hover {
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+}
+
+/* === Intro Section Parallax Hint === */
+.intro-image {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-section:hover .intro-image {
+  transform: translateX(-50%) scale(1.02);
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .timeline-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .button-solid {
+    animation: none;
+  }
+
+  .material-hero {
+    animation: none;
+  }
+}
