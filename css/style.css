@@ -1140,8 +1140,6 @@ body[data-page="reiki"] .material-section::before {
 }
 
 .compact-bar {
-  max-width: 1240px;
-  margin: 0 auto;
   padding: 10px 5.2vw;
   display: flex;
   align-items: center;
