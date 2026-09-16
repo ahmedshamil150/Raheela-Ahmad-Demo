@@ -1262,6 +1262,10 @@ body[data-page="reiki"] .material-section::before {
     padding: 10px 18px;
   }
 
+  .compact-nav {
+    display: none;
+  }
+
   .compact-mobile-menu {
     display: block;
     position: fixed;

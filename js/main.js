@@ -109,6 +109,12 @@ document.addEventListener('DOMContentLoaded', function () {
       '<img src="images/logo.png" alt="Raheelaa Ahmad logo">' +
       '<span>Raheelaa Ahmad</span>' +
     '</a>' +
+    '<nav class="compact-nav" aria-label="Compact navigation">' +
+      pages.map(function (p) {
+        return '<a href="' + p[1] + '">' + p[0] + '</a>';
+      }).join('') +
+      '<a class="compact-book" href="book-appointment.html">Book Now</a>' +
+    '</nav>' +
   '</div>';
   document.body.appendChild(compactNav);
 
