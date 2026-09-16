@@ -1322,8 +1322,10 @@ body[data-page="reiki"] .material-section::before {
   }
 
   .compact-menu-toggle {
-    order: 2;
-    z-index: 1002;
+    position: fixed;
+    top: 10px;
+    right: 18px;
+    z-index: 1000;
     width: 38px;
     height: 36px;
     padding: 8px;
@@ -1359,11 +1361,11 @@ body[data-page="reiki"] .material-section::before {
     transform: translateY(-6px) rotate(-45deg);
   }
 
-  .compact-menu-toggle[aria-expanded="true"] {
+  .compact-menu-toggle.is-open {
     position: fixed;
     top: 16px;
     right: 18px;
-    z-index: 1002;
+    z-index: 1003;
     color: var(--olive-dark);
     background: rgba(255, 255, 255, 0.85);
   }

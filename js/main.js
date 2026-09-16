@@ -109,13 +109,19 @@ document.addEventListener('DOMContentLoaded', function () {
       '<img src="images/logo.png" alt="Raheelaa Ahmad logo">' +
       '<span>Raheelaa Ahmad</span>' +
     '</a>' +
-    '<button class="compact-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">' +
-      '<span></span><span></span><span></span>' +
-    '</button>' +
   '</div>';
   document.body.appendChild(compactNav);
 
-  // Mobile menu overlay (appended to body, not inside compact nav)
+  // Hamburger toggle (appended to body so position:fixed works relative to viewport)
+  var compactToggle = document.createElement('button');
+  compactToggle.className = 'compact-menu-toggle';
+  compactToggle.type = 'button';
+  compactToggle.setAttribute('aria-label', 'Open menu');
+  compactToggle.setAttribute('aria-expanded', 'false');
+  compactToggle.innerHTML = '<span></span><span></span><span></span>';
+  document.body.appendChild(compactToggle);
+
+  // Mobile menu overlay (appended to body)
   var mobileOverlay = document.createElement('div');
   mobileOverlay.className = 'compact-mobile-menu';
   mobileOverlay.innerHTML =
@@ -126,9 +132,6 @@ document.addEventListener('DOMContentLoaded', function () {
       '<a class="compact-book" href="book-appointment.html">Book Now</a>' +
     '</nav>';
   document.body.appendChild(mobileOverlay);
-
-  // Mobile menu toggle for compact nav
-  var compactToggle = compactNav.querySelector('.compact-menu-toggle');
   var compactMobileNav = mobileOverlay.querySelector('.compact-mobile-nav');
   if (compactToggle && compactMobileNav) {
     compactToggle.addEventListener('click', function () {
