@@ -16,6 +16,7 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
+  padding-bottom: 38px;
 }
 
 body {
@@ -1198,7 +1199,61 @@ body[data-page="reiki"] .material-section::before {
   background: #55573a;
 }
 
+/* === Events Ribbon === */
+.events-ribbon {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  height: 38px;
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.88);
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.events-ribbon-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: ribbonScroll 40s linear infinite;
+}
+
+.events-ribbon-item {
+  padding: 0 24px;
+}
+
+.events-ribbon-dot {
+  font-size: 5px;
+  opacity: 0.4;
+}
+
+@keyframes ribbonScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 720px) {
+  .events-ribbon {
+    height: 34px;
+    font-size: 11px;
+  }
+
+  body {
+    padding-bottom: 34px;
+  }
+}
+
 .compact-menu-toggle {
+  display: none;
+}
+
+.compact-mobile-menu {
   display: none;
 }
 
@@ -1207,20 +1262,16 @@ body[data-page="reiki"] .material-section::before {
     padding: 10px 18px;
   }
 
-  .compact-nav {
+  .compact-mobile-menu {
+    display: block;
     position: fixed;
     z-index: 1001;
+    top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
-    left: 0;
     width: 100%;
     height: 100svh;
-    padding: 80px 28px 36px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0;
-    overflow-y: auto;
     background: var(--cream);
     transform: translateY(100%);
     visibility: hidden;
@@ -1228,13 +1279,24 @@ body[data-page="reiki"] .material-section::before {
     transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .compact-nav.menu-open {
+  .compact-mobile-menu.menu-open {
     transform: translateY(0) !important;
     visibility: visible;
     pointer-events: auto;
   }
 
-  .compact-nav a {
+  .compact-mobile-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 80px 28px 36px;
+    gap: 0;
+    overflow-y: auto;
+  }
+
+  .compact-mobile-nav a {
     display: block;
     padding: 12px 0;
     font-family: var(--serif);
@@ -1244,11 +1306,11 @@ body[data-page="reiki"] .material-section::before {
     color: var(--ink);
   }
 
-  .compact-nav a:hover {
+  .compact-mobile-nav a:hover {
     color: var(--olive-dark);
   }
 
-  .compact-nav .compact-book {
+  .compact-mobile-nav .compact-book {
     width: max-content;
     margin: 18px auto 0;
     padding: 12px 22px;
@@ -1285,15 +1347,15 @@ body[data-page="reiki"] .material-section::before {
     transition: transform 220ms ease, opacity 220ms ease;
   }
 
-  .compact-nav.menu-open ~ .compact-menu-toggle span:nth-child(1) {
+  .compact-menu-toggle.is-open span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
   }
 
-  .compact-nav.menu-open ~ .compact-menu-toggle span:nth-child(2) {
+  .compact-menu-toggle.is-open span:nth-child(2) {
     opacity: 0;
   }
 
-  .compact-nav.menu-open ~ .compact-menu-toggle span:nth-child(3) {
+  .compact-menu-toggle.is-open span:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
   }
 
