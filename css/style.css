@@ -314,11 +314,95 @@ a {
 }
 
 .material-hero {
+  position: relative;
   max-width: none;
-  padding-top: 88px;
-  padding-bottom: 78px;
+  padding: 100px max(32px, 6vw) 90px;
+  overflow: hidden;
   color: #fff;
-  background: var(--olive-dark);
+  text-align: center;
+  /* Warm layered gradient — cream gold to deep olive */
+  background:
+    radial-gradient(ellipse 70% 60% at 20% 40%, rgba(210,195,130,0.38) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 55% at 80% 70%, rgba(180,175,100,0.28) 0%, transparent 60%),
+    linear-gradient(150deg, #4a4d30 0%, #666847 45%, #7a7c50 100%);
+}
+
+/* Decorative floating blobs */
+.material-hero::before,
+.material-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.material-hero::before {
+  width: clamp(280px, 40vw, 560px);
+  height: clamp(280px, 40vw, 560px);
+  top: -120px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(199,199,149,0.22) 0%, transparent 70%);
+  animation: heroBlob1 8s ease-in-out infinite alternate;
+}
+
+.material-hero::after {
+  width: clamp(180px, 25vw, 380px);
+  height: clamp(180px, 25vw, 380px);
+  bottom: -80px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(245,238,229,0.18) 0%, transparent 70%);
+  animation: heroBlob2 11s ease-in-out infinite alternate;
+}
+
+@keyframes heroBlob1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-30px, 20px) scale(1.08); }
+}
+
+@keyframes heroBlob2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(20px, -25px) scale(1.1); }
+}
+
+/* Scattered leaf / sparkle decorations via inline SVG in each hero */
+.hero-deco {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.18;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+  user-select: none;
+}
+
+.hero-deco-1 { top: 14%; left: 5%; transform: rotate(-18deg); animation: heroDeco 7s ease-in-out infinite alternate; }
+.hero-deco-2 { top: 22%; right: 7%; transform: rotate(14deg); animation: heroDeco 9s ease-in-out infinite alternate-reverse; }
+.hero-deco-3 { bottom: 18%; left: 10%; transform: rotate(8deg); animation: heroDeco 6s ease-in-out infinite alternate; }
+.hero-deco-4 { bottom: 12%; right: 5%; transform: rotate(-22deg); animation: heroDeco 10s ease-in-out infinite alternate-reverse; }
+
+@keyframes heroDeco {
+  from { transform: translateY(0) rotate(var(--r, 0deg)) scale(1); opacity: 0.18; }
+  to   { transform: translateY(-12px) rotate(var(--r, 0deg)) scale(1.06); opacity: 0.28; }
+}
+
+/* Thin decorative rule above eyebrow */
+.material-hero .intro-eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #d9d8a0;
+  letter-spacing: 0.28em;
+  font-size: 11px;
+  margin-bottom: 18px;
+}
+
+.material-hero .intro-eyebrow::before,
+.material-hero .intro-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: rgba(217,216,160,0.6);
 }
 
 .material-hero h1,
@@ -2262,14 +2346,14 @@ body[data-page="reiki"] .material-section::before {
 
 /* Plain (no animation) hero heading */
 .hero-plain-heading {
-  margin: 16px 0 0;
+  margin: 0 auto;
   color: #fff;
   font-family: var(--serif);
-  font-size: clamp(48px, 7vw, 96px);
+  font-size: clamp(52px, 7.5vw, 104px);
   font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: 0.01em;
-  text-align: center;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.18);
 }
 
 /* About page: minimal hero (no heading) */
