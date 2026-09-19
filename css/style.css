@@ -2259,3 +2259,22 @@ body[data-page="reiki"] .material-section::before {
   font-weight: 500;
   line-height: 1.15;
 }
+
+/* Plain (no animation) hero heading */
+.hero-plain-heading {
+  margin: 16px 0 0;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* About page: minimal hero (no heading) */
+body[data-page="about"] .material-hero {
+  min-height: 80px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
