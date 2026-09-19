@@ -2363,9 +2363,7 @@ body[data-page="reiki"] .material-section::before {
   text-shadow: 0 4px 32px rgba(0,0,0,0.18);
 }
 
-/* About page: minimal hero (no heading) */
-body[data-page="about"] .material-hero {
-  min-height: 80px;
-  padding-top: 48px;
-  padding-bottom: 48px;
+/* About page: meet section spacing */
+body[data-page="about"] .meet-section {
+  margin-top: 0;
 }
