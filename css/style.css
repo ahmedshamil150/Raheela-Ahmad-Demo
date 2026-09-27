@@ -1761,9 +1761,10 @@ body[data-page="about"] .meet-content p {
   overflow: hidden;
   text-align: center;
   color: #fffdf6;
-  background:
-    radial-gradient(ellipse 55% 70% at 18% 16%, rgba(216, 233, 149, 0.32), transparent 62%),
-    radial-gradient(ellipse 60% 75% at 84% 84%, rgba(162, 190, 104, 0.36), transparent 62%),
+  background-color: #2f4a2b;
+  background-image:
+    radial-gradient(ellipse at 18% 16%, rgba(216, 233, 149, 0.32) 0%, rgba(216, 233, 149, 0) 62%),
+    radial-gradient(ellipse at 84% 84%, rgba(162, 190, 104, 0.36) 0%, rgba(162, 190, 104, 0) 62%),
     linear-gradient(135deg, #47603a 0%, #2f4a2b 52%, #3f5a2f 100%);
 }
 
@@ -1771,8 +1772,8 @@ body[data-page="about"] .meet-content p {
   content: '';
   position: absolute;
   inset: -25%;
-  z-index: -1;
-  background: repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 46px);
+  z-index: 0;
+  background: repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0) 46px);
   animation: pageHeroSheen 34s linear infinite;
 }
 
@@ -1783,24 +1784,24 @@ body[data-page="about"] .meet-content p {
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 253, 246, 0.55), transparent);
+  background: linear-gradient(90deg, rgba(255, 253, 246, 0) 0%, rgba(255, 253, 246, 0.55) 50%, rgba(255, 253, 246, 0) 100%);
 }
 
 .page-hero__glow {
   position: absolute;
   top: 10%;
   left: 16%;
-  z-index: -1;
+  z-index: 0;
   width: 68%;
   height: 80%;
-  background: radial-gradient(circle at center, rgba(235, 244, 178, 0.34), transparent 70%);
+  background: radial-gradient(circle at center, rgba(235, 244, 178, 0.34), rgba(235, 244, 178, 0) 70%);
   filter: blur(42px);
   pointer-events: none;
 }
 
 .page-hero__ring {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   aspect-ratio: 1;
   border: 1px solid rgba(255, 253, 246, 0.18);
   border-radius: 50%;
@@ -1867,7 +1868,7 @@ body[data-page="about"] .meet-content p {
   height: 3px;
   margin-top: clamp(18px, 3.2vh, 32px);
   border-radius: 3px;
-  background: linear-gradient(90deg, transparent, #d8e995 28%, #fffdf6 50%, #d8e995 72%, transparent);
+  background: linear-gradient(90deg, rgba(216, 233, 149, 0) 0%, #d8e995 28%, #fffdf6 50%, #d8e995 72%, rgba(216, 233, 149, 0) 100%);
 }
 
 .page-hero__glyph {
