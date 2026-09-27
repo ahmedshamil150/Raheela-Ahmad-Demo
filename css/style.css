@@ -1229,7 +1229,7 @@ body[data-page="yoga"] .material-section {
   display: none;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .compact-bar {
     padding: 10px 18px;
   }
@@ -1934,9 +1934,15 @@ body.menu-open {
   overflow: hidden;
 }
 
-@media (min-width: 981px) and (max-width: 1080px) {
+@media (min-width: 901px) and (max-width: 1080px) {
   .nav-link {
     font-size: 10.5px;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    display: none;
   }
 }
 
