@@ -24,13 +24,18 @@
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
+          if (!entry.isIntersecting) return;
+          // Elements taller than the viewport can never reach a 0.12 ratio,
+          // so reveal them as soon as they enter the viewport instead.
+          var tallerThanViewport =
+            entry.boundingClientRect.height > window.innerHeight * 0.9;
+          if (entry.intersectionRatio >= 0.12 || tallerThanViewport) {
             entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: [0, 0.12], rootMargin: '0px 0px -40px 0px' }
     );
 
     for (var j = 0; j < targets.length; j++) {
