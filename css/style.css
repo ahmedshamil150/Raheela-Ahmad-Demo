@@ -614,7 +614,7 @@ body[data-page="yoga"] .material-section {
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   font-size: 1.1em;
   gap: 24px;
 }
@@ -728,9 +728,10 @@ body[data-page="yoga"] .material-section {
 
 .reviews-heading {
   display: flex;
+  flex-wrap: wrap;
   align-items: end;
   justify-content: space-between;
-  gap: 40px;
+  gap: 24px 40px;
   margin-bottom: 48px;
 }
 
@@ -784,7 +785,7 @@ body[data-page="yoga"] .material-section {
 
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   font-size: 1.1em;
   gap: 18px;
 }
@@ -2173,5 +2174,20 @@ body.menu-open {
   .footer-column a,
   .footer-column p {
     max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .reviews-summary {
+    min-width: 0;
+    width: 100%;
+    padding: 14px 0 0;
+    border-left: none;
+    border-top: 1px solid rgba(119, 121, 85, 0.35);
+  }
+
+  .reviews-heading h2 {
+    font-size: clamp(30px, 9vw, 42px);
+    padding: 8px 14px;
   }
 }

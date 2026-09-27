@@ -88,7 +88,7 @@
   max-width: 1060px;
   margin: 48px auto 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -476,7 +476,7 @@
   }
 
   .benefits-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .offerings-grid {
@@ -583,5 +583,11 @@
 
   .workshop-gallery-overlay span {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .benefits-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
