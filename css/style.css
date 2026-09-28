@@ -1,4 +1,4 @@
-* {
+﻿* {
   box-sizing: border-box;
 }
 
@@ -93,22 +93,23 @@ a {
 }
 
 .brand-bar {
-  height: 104px;
+  height: 76px;
+  padding: 0 5.2vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: #fff;
 }
 
 .brand-lockup {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 18px;
 }
 
 .brand-logo {
-  width: 82px;
-  height: 88px;
+  width: 64px;
+  height: 68px;
   object-fit: contain;
 }
 
@@ -124,7 +125,7 @@ a {
   margin: 0;
   color: #1e1e1e;
   font-family: var(--serif);
-  font-size: 39px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 0.9;
   letter-spacing: 0.01em;
@@ -1956,16 +1957,16 @@ body.menu-open {
   }
 
   .brand-bar {
-    height: 92px;
+    height: 66px;
   }
 
   .brand-logo {
-    width: 70px;
-    height: 76px;
+    width: 56px;
+    height: 60px;
   }
 
   .brand-name {
-    font-size: 34px;
+    font-size: 30px;
   }
 
   .intro-section {
@@ -2071,16 +2072,16 @@ body.menu-open {
   }
 
   .brand-bar {
-    height: 80px;
-  }
-
-  .brand-logo {
-    width: 56px;
     height: 60px;
   }
 
+  .brand-logo {
+    width: 48px;
+    height: 52px;
+  }
+
   .brand-name {
-    font-size: 27px;
+    font-size: 25px;
   }
 
   .main-nav {
@@ -2221,5 +2222,109 @@ body.menu-open {
 
   .split-intro__media img {
     max-height: 440px;
+  }
+}
+
+
+/* ===========================
+   ABOUT HERO - sage banner
+   =========================== */
+
+body[data-page="about"] .page-hero {
+  min-height: clamp(250px, 22vw, 360px);
+  padding: clamp(54px, 8vh, 90px) max(24px, 6vw) clamp(46px, 9vh, 92px);
+  color: #4a5740;
+  background-color: #C5C89B;
+  background-image:
+    radial-gradient(120% 150% at 24% 34%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 58%),
+    radial-gradient(95% 135% at 88% 102%, rgba(114, 137, 84, 0.22) 0%, rgba(114, 137, 84, 0) 62%),
+    linear-gradient(158deg, #CFD2A8 0%, #C5C89B 46%, #B4B78A 100%);
+}
+
+body[data-page="about"] .page-hero::before,
+body[data-page="about"] .page-hero::after {
+  display: none;
+}
+
+body[data-page="about"] .page-hero__title {
+  max-width: min(920px, 92vw);
+  color: #4a5740;
+  font-size: clamp(28px, 3.8vw, 54px);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: 0.005em;
+  text-shadow: none;
+}
+
+.about-hero__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2vw, 26px);
+  margin-top: clamp(14px, 2.6vh, 28px);
+}
+
+.about-hero__divider-line {
+  display: block;
+  width: clamp(72px, 12vw, 178px);
+  height: 1.5px;
+  background: #59674d;
+  opacity: 0.9;
+}
+
+.about-hero__divider svg {
+  display: block;
+  width: clamp(36px, 3.6vw, 52px);
+  height: auto;
+  color: #59674d;
+}
+
+.about-hero__silk {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  z-index: 0;
+  width: min(100%, 1600px);
+  height: auto;
+  pointer-events: none;
+}
+
+.about-hero__zen {
+  position: absolute;
+  right: clamp(-12px, 1vw, 44px);
+  bottom: -1px;
+  z-index: 0;
+  width: clamp(150px, 13.5vw, 270px);
+  height: auto;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  body[data-page="about"] .page-hero {
+    min-height: clamp(230px, 34vh, 320px);
+    padding: 52px 20px 40px;
+  }
+
+  body[data-page="about"] .page-hero__title {
+    font-size: clamp(26px, 6.6vw, 38px);
+  }
+
+  .about-hero__zen {
+    width: clamp(140px, 40vw, 210px);
+    opacity: 0.95;
+  }
+
+  .about-hero__silk {
+    width: 100%;
+  }
+
+  .about-hero__divider-line {
+    width: clamp(48px, 14vw, 96px);
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-page="about"] .page-hero__title br {
+    display: none;
   }
 }
