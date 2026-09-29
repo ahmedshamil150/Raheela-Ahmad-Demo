@@ -1916,7 +1916,10 @@ body[data-page="about"] .meet-content p {
 .media-row {
   display: grid;
   gap: clamp(14px, 2vw, 24px);
-  margin: 0 0 clamp(30px, 4vw, 46px);
+  width: min(1200px, calc(100vw - 48px));
+  margin-bottom: clamp(30px, 4vw, 46px);
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .media-row--pair {
@@ -1937,10 +1940,6 @@ body[data-page="about"] .meet-content p {
   background: var(--cream);
   box-shadow: 0 16px 34px rgba(54, 57, 34, 0.14);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.media-row--pair img {
-  aspect-ratio: 1 / 1;
 }
 
 .media-row img:hover {
