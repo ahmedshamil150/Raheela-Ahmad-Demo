@@ -104,7 +104,7 @@ a {
 .brand-lockup {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
 }
 
 .brand-logo {
@@ -114,15 +114,17 @@ a {
 }
 
 .brand-copy {
-  padding-top: 3px;
+  padding-top: 2px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .brand-name {
   display: block;
   margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(119, 121, 85, 0.55);
   color: #1e1e1e;
   font-family: var(--serif);
   font-size: 34px;
@@ -133,12 +135,14 @@ a {
 
 .brand-tagline {
   display: block;
-  margin: 13px 0 0;
+  margin: 6px 0 0;
   color: var(--olive);
   font-family: var(--serif);
-  font-size: 19px;
-  letter-spacing: 0.2em;
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: 0.09em;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .main-nav {
@@ -1469,7 +1473,7 @@ body[data-page="yoga"] .material-section {
   }
 
   .brand-tagline {
-    font-size: 17px;
+    font-size: 12px;
   }
 
   .compact-nav a:not(.compact-book) {
@@ -2227,10 +2231,10 @@ body.menu-open {
 
 
 /* ===========================
-   ABOUT HERO - sage banner
+   PAGE HERO - sage banner (site-wide)
    =========================== */
 
-body[data-page="about"] .page-hero {
+.page-hero {
   min-height: clamp(130px, 10vw, 170px);
   padding: clamp(30px, 4.5vh, 50px) max(24px, 6vw) clamp(26px, 4vh, 44px);
   color: #4a5740;
@@ -2241,12 +2245,12 @@ body[data-page="about"] .page-hero {
     linear-gradient(158deg, #CFD2A8 0%, #C5C89B 46%, #B4B78A 100%);
 }
 
-body[data-page="about"] .page-hero::before,
-body[data-page="about"] .page-hero::after {
+.page-hero::before,
+.page-hero::after {
   display: none;
 }
 
-body[data-page="about"] .page-hero__title {
+.page-hero__title {
   max-width: min(920px, 92vw);
   color: #4a5740;
   font-size: clamp(24px, 2.6vw, 40px);
@@ -2254,6 +2258,25 @@ body[data-page="about"] .page-hero__title {
   line-height: 1.16;
   letter-spacing: 0.005em;
   text-shadow: none;
+}
+
+.page-hero__eyebrow {
+  margin-bottom: clamp(8px, 1.4vh, 14px);
+  color: #59674d;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+}
+
+.page-hero__eyebrow::before,
+.page-hero__eyebrow::after {
+  background: rgba(89, 103, 77, 0.65);
+}
+
+.page-hero__rule {
+  width: clamp(60px, 9vw, 130px);
+  height: 1.5px;
+  margin-top: clamp(10px, 1.8vh, 18px);
+  background: linear-gradient(90deg, rgba(89, 103, 77, 0) 0%, #59674d 30%, #59674d 70%, rgba(89, 103, 77, 0) 100%);
 }
 
 .about-hero__divider {
@@ -2279,17 +2302,16 @@ body[data-page="about"] .page-hero__title {
   color: #59674d;
 }
 
-.about-hero__silk {
+.page-hero__silk {
   position: absolute;
-  left: 0;
-  bottom: -1px;
+  inset: 0;
   z-index: 0;
-  width: min(75%, 1150px);
-  height: auto;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 }
 
-.about-hero__zen {
+.page-hero__zen {
   position: absolute;
   right: clamp(-12px, 1vw, 44px);
   bottom: -1px;
@@ -2300,31 +2322,28 @@ body[data-page="about"] .page-hero__title {
 }
 
 @media (max-width: 760px) {
-  body[data-page="about"] .page-hero {
+  .page-hero {
     min-height: clamp(120px, 18vh, 170px);
     padding: 26px 18px 22px;
   }
 
-  body[data-page="about"] .page-hero__title {
+  .page-hero__title {
     font-size: clamp(20px, 5vw, 28px);
   }
 
-  .about-hero__zen {
+  .page-hero__zen {
     width: clamp(90px, 26vw, 140px);
     opacity: 0.95;
   }
 
-  .about-hero__silk {
-    width: 90%;
-  }
-
-  .about-hero__divider-line {
+  .about-hero__divider-line,
+  .page-hero__rule {
     width: clamp(40px, 12vw, 70px);
   }
 }
 
 @media (max-width: 560px) {
-  body[data-page="about"] .page-hero__title br {
+  .page-hero__title br {
     display: none;
   }
 }
