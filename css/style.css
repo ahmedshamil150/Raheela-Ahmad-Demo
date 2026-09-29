@@ -1915,7 +1915,8 @@ body[data-page="about"] .meet-content p {
 
 .media-row {
   display: grid;
-  gap: 18px;
+  gap: clamp(14px, 2vw, 24px);
+  margin: 0 0 clamp(30px, 4vw, 46px);
 }
 
 .media-row--pair {
@@ -1929,8 +1930,36 @@ body[data-page="about"] .meet-content p {
 .media-row img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 50% 32%;
+  border-radius: 14px;
+  background: var(--cream);
+  box-shadow: 0 16px 34px rgba(54, 57, 34, 0.14);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.media-row--pair img {
+  aspect-ratio: 1 / 1;
+}
+
+.media-row img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 46px rgba(54, 57, 34, 0.2);
+}
+
+.media-caption {
+  max-width: 780px;
+  margin: 0 auto 20px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.media-caption--strong {
+  margin-bottom: clamp(30px, 4vw, 46px);
+  font-weight: 600;
+  color: var(--olive-dark);
 }
 
 /* ===========================
@@ -2158,16 +2187,14 @@ body.menu-open {
     gap: 12px;
   }
 
-  .media-row--pair,
-  .media-row--trio {
-    grid-template-columns: 1fr 1fr;
+  .media-row--pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .media-row--trio img:last-child {
-    grid-column: 1 / -1;
-    max-width: 70%;
-    justify-self: center;
+  .media-row--trio {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
 
   .footer-main {
     grid-template-columns: 1fr;
@@ -2183,6 +2210,19 @@ body.menu-open {
 }
 
 @media (max-width: 560px) {
+  .media-row--trio {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .media-row--trio img:last-child {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+
+  .media-caption {
+    font-size: 16px;
+  }
+
   .reviews-summary {
     min-width: 0;
     width: 100%;
