@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  document.querySelectorAll('.page-hero__content, .hero-copy').forEach(injectHeroUnderline);
+  document.querySelectorAll('.page-hero__content').forEach(injectHeroUnderline);
 
   const page = document.body.dataset.page;
   const activeLink = document.querySelector(`[data-nav="${page}"]`);

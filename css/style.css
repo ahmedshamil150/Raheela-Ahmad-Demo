@@ -218,10 +218,9 @@ a {
 .hero {
   position: relative;
   height: clamp(390px, calc(100svh - 275px), 470px);
-  background: #C5C89B;
+  background: url('../images/mainheroimage.webp') center center / cover no-repeat;
 }
 
-.hero-flower,
 .page-hero__flower {
   position: absolute;
   right: 0;
@@ -2555,7 +2554,6 @@ body.menu-open {
     opacity: 0.95;
   }
 
-  .hero-flower,
   .page-hero__flower {
     max-width: 64%;
     opacity: 0.95;
