@@ -67,11 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
           <feGaussianBlur stdDeviation="7"/>
         </filter>
       </defs>
-      <path d="M-40 46C165 30 345 74 555 110C775 148 1025 178 1440 204" stroke="#ffffff" stroke-width="11" opacity="0.34" filter="url(#phSilkBlur)"/>
-      <path d="M-40 30C170 14 350 60 560 96C780 134 1030 166 1440 192" stroke="#ffffff" stroke-width="2.6" opacity="0.75"/>
-      <path d="M-40 62C160 46 340 90 550 124C770 160 1020 190 1440 214" stroke="#ffffff" stroke-width="1.9" opacity="0.55"/>
-      <path d="M-40 100C150 86 330 126 540 156C760 188 1010 216 1440 236" stroke="#ffffff" stroke-width="1.5" opacity="0.38"/>
-      <path d="M-40 8C180 -6 360 38 570 76C790 116 1040 150 1440 178" stroke="#ffffff" stroke-width="1.5" opacity="0.3"/>
+      <path d="M-40 231C180 225 345 238 555 233C775 228 1025 240 1440 232" stroke="#ffffff" stroke-width="11" opacity="0.34" filter="url(#phSilkBlur)"/>
+      <path d="M-40 240C170 234 350 240 560 236C780 232 1030 240 1440 237" stroke="#ffffff" stroke-width="2.6" opacity="0.75"/>
+      <path d="M-40 236C160 230 340 242 550 237C770 232 1020 242 1440 236" stroke="#ffffff" stroke-width="1.9" opacity="0.55"/>
+      <path d="M-40 228C150 222 330 234 540 229C760 224 1010 236 1440 230" stroke="#ffffff" stroke-width="1.5" opacity="0.38"/>
+      <path d="M-40 222C180 216 360 228 570 223C790 218 1040 230 1440 224" stroke="#ffffff" stroke-width="1.5" opacity="0.3"/>
     </svg>`;
 
 

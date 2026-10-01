@@ -124,7 +124,7 @@ a {
   display: block;
   margin: 0;
   padding-bottom: 6px;
-  border-bottom: 1px solid rgba(119, 121, 85, 0.55);
+  border-bottom: 1px solid var(--olive);
   color: #1e1e1e;
   font-family: var(--serif);
   font-size: 34px;
@@ -135,12 +135,14 @@ a {
 
 .brand-tagline {
   display: block;
-  margin: 6px 0 0;
+  margin: 7px 0 0;
   color: var(--olive);
-  font-family: var(--serif);
-  font-size: 13px;
-  font-style: italic;
-  letter-spacing: 0.09em;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   line-height: 1;
   white-space: nowrap;
 }
@@ -624,14 +626,15 @@ body[data-page="yoga"] .material-section {
 
 .services-heading .intro-eyebrow {
   color: var(--olive-dark);
-  font-size: 36px;
+  font-size: 30px;
+  letter-spacing: 0.1em;
 }
 
 .services-heading h2 {
   margin: 0;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: clamp(42px, 5vw, 68px);
+  font-size: clamp(36px, 4.2vw, 56px);
   font-weight: 500;
   line-height: 0.98;
 }
@@ -710,7 +713,7 @@ body[data-page="yoga"] .material-section {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .service-card .service-link {
@@ -721,7 +724,7 @@ body[data-page="yoga"] .material-section {
 
 .service-card .service-book-link {
   width: fit-content;
-  margin: 0 12px 0 0;
+  margin: 0 0 0 12px;
 }
 
 .service-link {
@@ -792,9 +795,13 @@ body[data-page="yoga"] .material-section {
   margin: 0;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  color: #fff;
-  background-color: var(--olive);
   padding: 10px 20px 10px calc(max(32px, 6vw, (100vw - 1240px) / 2) + 20px);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  color: #fff;
+  background-color: #292b22;
   border-radius: 4px;
   font-family: var(--serif);
   font-size: clamp(42px, 5vw, 68px);
@@ -822,6 +829,42 @@ body[data-page="yoga"] .material-section {
   font-size: 17px;
   letter-spacing: 0.08em;
   white-space: nowrap;
+}
+
+.reviews-heading h2 .ribbon-rating {
+  margin-left: auto;
+  padding: 2px 0 2px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  min-width: 180px;
+}
+
+.reviews-heading h2 .ribbon-rating .review-stars {
+  color: #d8e995;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+}
+
+.reviews-heading h2 .ribbon-rating strong {
+  margin-top: 5px;
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.reviews-heading h2 .ribbon-rating > span:last-child {
+  margin-top: 4px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
 }
 
 .reviews-summary strong {
@@ -1616,7 +1659,7 @@ body[data-page="yoga"] .material-section {
 
 /* Free resources gate section on home page */
 .free-resources-gate {
-  padding: 88px max(32px, 6vw) 96px;
+  padding: 56px max(32px, 6vw) 60px;
   background: var(--olive-dark);
   text-align: center;
 }
@@ -1628,6 +1671,8 @@ body[data-page="yoga"] .material-section {
 
 .free-resources-gate .intro-eyebrow {
   color: #c7c795;
+  font-size: 18px;
+  letter-spacing: 0.1em;
 }
 
 .free-resources-gate h2 {
@@ -1770,7 +1815,7 @@ body[data-page="yoga"] .material-section {
   }
 
   .free-resources-gate {
-    padding: 68px 24px 76px;
+    padding: 44px 24px 48px;
   }
 
   .resources-gate-form {
