@@ -411,6 +411,12 @@ body[data-page="yoga"] .material-section {
   padding-right: max(32px, 6vw);
 }
 
+body[data-page="reiki"] .material-section--wide {
+  max-width: calc(1240px + 2 * max(32px, 6vw));
+  padding-left: max(32px, 6vw);
+  padding-right: max(32px, 6vw);
+}
+
 
 .material-highlight {
   max-width: none;
@@ -2383,12 +2389,36 @@ body.menu-open {
   box-shadow: 0 18px 44px rgba(47, 74, 43, 0.2);
 }
 
+body[data-page="reiki"] .split-intro__media img {
+  max-height: none;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .split-intro--media-right {
   grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
 }
 
 .split-intro--media-right .split-intro__media {
   order: 2;
+}
+
+body[data-page="reiki"] .split-intro--media-right {
+  gap: clamp(64px, 14vw, 200px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.75fr);
+}
+
+@media (max-width: 860px) {
+  body[data-page="reiki"] .split-intro--media-right {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  body[data-page="reiki"] .material-section--wide {
+    padding-left: max(24px, 6vw);
+    padding-right: max(24px, 6vw);
+  }
 }
 
 .about-story-section .split-intro__body p {
@@ -2617,5 +2647,14 @@ body.menu-open {
 @media (max-width: 560px) {
   .page-hero__title br {
     display: none;
+  }
+
+  .brand-tagline {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .brand-name {
+    font-size: 22px;
   }
 }
