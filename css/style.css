@@ -752,23 +752,28 @@ body[data-page="reiki"] .material-section--wide {
 }
 
 .service-book-link {
-  margin: 12px 12px 0;
-  padding: 12px 16px;
+  width: fit-content;
+  min-width: 182px;
+  margin: 12px 0 0;
+  padding: 12px 24px;
   display: block;
-  border: 1px solid var(--olive);
-  background: var(--olive);
+  border: 1.5px solid var(--olive);
+  border-radius: 24px;
+  background: var(--olive-dark);
   color: #fff;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-align: center;
   text-transform: uppercase;
-  transition: background 180ms ease, transform 180ms ease;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .service-book-link:hover {
-  background: var(--olive-dark);
-  transform: translateY(-1px);
+  background: var(--olive);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(54, 57, 34, 0.2);
 }
 
 .reviews-section {
@@ -2393,7 +2398,6 @@ body[data-page="reiki"] .split-intro__media img {
   max-height: none;
   object-fit: contain;
   border-radius: 0;
-  box-shadow: none;
 }
 
 .split-intro--media-right {
@@ -2656,5 +2660,24 @@ body[data-page="reiki"] .split-intro--media-right {
 
   .brand-name {
     font-size: 22px;
+  }
+}
+
+/* Yoga benefits: centre the trailing Corporate Wellness card */
+body[data-page="yoga"] .benefits-grid .benefit-card:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - 40px) / 3);
+}
+
+@media (max-width: 720px) {
+  body[data-page="yoga"] .benefits-grid .benefit-card:last-child {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 400px) {
+  body[data-page="yoga"] .benefits-grid .benefit-card:last-child {
+    width: 100%;
   }
 }

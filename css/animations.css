@@ -369,13 +369,14 @@
 
 /* === Offering Card Book Link === */
 .offering-card .service-book-link {
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .offering-card .service-book-link:hover {
   background: var(--olive);
   color: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(54, 57, 34, 0.2);
 }
 
 /* === Material Section Headings === */
