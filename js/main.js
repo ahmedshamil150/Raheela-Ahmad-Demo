@@ -38,7 +38,7 @@ const header = `
       <img class="brand-logo" src="images/logo.png" alt="Raheelaa Ahmad Life Coach logo">
       <span class="brand-copy">
         <span class="brand-name">Raheelaa Ahmad</span>
-        <span class="brand-tagline">Where you Let GO, GROW &amp; GLOW</span>
+        <span class="brand-tagline">Where Transformation Begins</span>
       </span>
     </a>
   </div>
