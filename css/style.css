@@ -124,7 +124,7 @@ a {
   display: block;
   margin: 0;
   padding-bottom: 6px;
-  border-bottom: 1px solid var(--olive);
+  border-bottom: 2px solid var(--olive);
   color: #1e1e1e;
   font-family: var(--serif);
   font-size: 34px;
