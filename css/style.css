@@ -135,14 +135,14 @@ a {
 
 .brand-tagline {
   display: block;
-  margin: 7px 0 0;
+  margin: 6px 0 0;
   color: var(--olive);
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   font-style: normal;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.06em;
   line-height: 1;
   white-space: nowrap;
 }
@@ -1590,7 +1590,7 @@ body[data-page="reiki"] .material-section--wide {
   }
 
   .brand-tagline {
-    font-size: 12px;
+    font-size: 9px;
   }
 
   .compact-nav a:not(.compact-book) {
@@ -2246,6 +2246,10 @@ body.menu-open {
     font-size: 25px;
   }
 
+  .brand-tagline {
+    font-size: 8px;
+  }
+
   .main-nav {
     display: none;
   }
@@ -2654,8 +2658,8 @@ body[data-page="reiki"] .split-intro--media-right {
   }
 
   .brand-tagline {
-    font-size: 9px;
-    letter-spacing: 0.1em;
+    font-size: 7px;
+    letter-spacing: 0.06em;
   }
 
   .brand-name {
