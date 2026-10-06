@@ -35,7 +35,7 @@ const header = `
   </div>
   <div class="brand-bar">
     <a class="brand-lockup" href="index.html" aria-label="Raheelaa Ahmad home">
-      <img class="brand-logo" src="images/logo.png" alt="Raheelaa Ahmad Life Coach logo">
+      <img class="brand-logo" src="images/logo.webp" alt="Raheelaa Ahmad Life Coach logo">
       <span class="brand-copy">
         <span class="brand-name">Raheelaa Ahmad</span>
         <span class="brand-tagline">Where Transformation Begins</span>
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   const heroFlower = `
-    <img class="page-hero__flower" src="images/hero section flower.png" alt="" aria-hidden="true">`;
+    <img class="page-hero__flower" src="images/hero section flower.webp" alt="" aria-hidden="true">`;
 
   const heroUnderline = `
     <div class="hero-underline" aria-hidden="true">
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
   compactNav.className = 'site-header-compact';
   compactNav.innerHTML = '<div class="compact-bar">' +
     '<a class="compact-brand" href="index.html" aria-label="Raheelaa Ahmad home">' +
-      '<img src="images/logo.png" alt="Raheelaa Ahmad logo">' +
+      '<img src="images/logo.webp" alt="Raheelaa Ahmad logo">' +
       '<span>Raheelaa Ahmad</span>' +
     '</a>' +
     '<nav class="compact-nav" aria-label="Compact navigation">' +
