@@ -272,7 +272,7 @@
         <h2 id="resources-gate-title">Unlock Free Healing Tools</h2>
         <p>Enter your email to access free questionnaires, guides, and practices.</p>
         <form class="resources-gate-form" id="resources-gate-form" action="https://formsubmit.co/raheelaahmadcoach@gmail.com" method="POST">
-          <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/thank-you">
+          <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/free-resources">
           <input type="hidden" name="_subject" value="New Free Resources Signup - Raheelaa Ahmad Website">
           <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -292,7 +292,7 @@
       <h2 id="popup-title">Unlock Free Healing Tools</h2>
       <p>Enter your email to access free questionnaires, guides, and wellness practices.</p>
       <form class="resources-gate-form" id="popup-gate-form" action="https://formsubmit.co/raheelaahmadcoach@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/thank-you">
+        <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/free-resources">
         <input type="hidden" name="_subject" value="New Free Resources Signup - Raheelaa Ahmad Website">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -361,7 +361,7 @@
         fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
           .then(function (res) {
             if (!res.ok) throw new Error('server');
-            window.location.href = 'thank-you.html';
+            window.location.href = 'free-resources.html';
           })
           .catch(function (err) {
             if (btn) { btn.disabled = false; btn.textContent = label; }
