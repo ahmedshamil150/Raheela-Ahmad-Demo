@@ -411,6 +411,7 @@ a {
 .material-image {
   float: right;
   width: min(300px, 30vw);
+  height: auto;
   aspect-ratio: 9 / 16;
   margin: 0 0 32px 56px;
   border-radius: 18px;
@@ -727,6 +728,7 @@ body[data-page="reiki"] .material-section--wide {
 
 .service-card-image {
   width: 100%;
+  height: auto;
   aspect-ratio: 1.45;
   display: block;
   object-fit: cover;
@@ -1715,6 +1717,7 @@ body[data-page="reiki"] .material-section--wide {
 /* Offering card images */
 .offering-card-image {
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 10px;
@@ -2120,6 +2123,7 @@ body[data-page="about"] .meet-content p {
 .media-row img {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: 50% 32%;
