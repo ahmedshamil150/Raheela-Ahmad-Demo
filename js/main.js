@@ -58,7 +58,7 @@ const header = `
 
 document.addEventListener('DOMContentLoaded', function () {
   const placeholder = document.getElementById('site-header');
-  if (placeholder) placeholder.innerHTML = header;
+  if (placeholder && !placeholder.firstElementChild) placeholder.innerHTML = header;
 
   const heroSilk = `
     <svg class="page-hero__silk" viewBox="0 0 1400 240" fill="none" preserveAspectRatio="none" aria-hidden="true">
