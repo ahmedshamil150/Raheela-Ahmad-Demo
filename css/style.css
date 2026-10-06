@@ -2700,3 +2700,9 @@ body[data-page="yoga"] .benefits-grid .benefit-card:last-child {
   white-space: nowrap;
   border: 0;
 }
+
+main > section + section,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
