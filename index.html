@@ -271,7 +271,11 @@
         <p class="intro-eyebrow">FREE RESOURCES</p>
         <h2 id="resources-gate-title">Unlock Free Healing Tools</h2>
         <p>Enter your email to access free questionnaires, guides, and practices.</p>
-        <form class="resources-gate-form" id="resources-gate-form" onsubmit="handleResourcesGate(event)">
+        <form class="resources-gate-form" id="resources-gate-form" action="https://formsubmit.co/raheelaahmadcoach@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/thank-you">
+          <input type="hidden" name="_subject" value="New Free Resources Signup - Raheelaa Ahmad Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <input type="email" id="gate-email" name="email" placeholder="your@email.com" required>
           <button type="submit" class="button button-solid">Get Free Access</button>
         </form>
@@ -287,7 +291,11 @@
       <p class="intro-eyebrow">FREE RESOURCES</p>
       <h2 id="popup-title">Unlock Free Healing Tools</h2>
       <p>Enter your email to access free questionnaires, guides, and wellness practices.</p>
-      <form class="resources-gate-form" id="popup-gate-form" onsubmit="handlePopupGate(event)">
+      <form class="resources-gate-form" id="popup-gate-form" action="https://formsubmit.co/raheelaahmadcoach@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/thank-you">
+        <input type="hidden" name="_subject" value="New Free Resources Signup - Raheelaa Ahmad Website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <input type="email" id="popup-email" name="email" placeholder="your@email.com" required>
         <button type="submit" class="button button-solid">Get Free Access</button>
       </form>
@@ -341,25 +349,42 @@
   <script src="js/scroll-reveal.js?v=6" defer></script>
   <script>
     // Free resources gate logic
-    function handleResourcesGate(e) {
-      e.preventDefault();
-      var email = document.getElementById('gate-email').value;
-      if (email) {
-        sessionStorage.setItem('resourcesAccess', '1');
-        window.location.href = 'free-resources.html';
-      }
+    // Submit in the background so the visitor never leaves the site
+    function wireGateForm(form, onBefore) {
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (onBefore) onBefore();
+        var btn = form.querySelector('button[type="submit"]');
+        var label = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+        fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
+          .then(function (res) {
+            if (!res.ok) throw new Error('server');
+            window.location.href = 'thank-you.html';
+          })
+          .catch(function (err) {
+            if (btn) { btn.disabled = false; btn.textContent = label; }
+            if (err && err.message === 'server') {
+              var note = document.createElement('p');
+              note.textContent = 'Something went wrong. Please try again.';
+              note.style.cssText = 'margin:10px 0 0;color:#b3261e;font-size:13px;';
+              form.appendChild(note);
+              return;
+            }
+            form.submit();
+          });
+      });
     }
-    function handlePopupGate(e) {
-      e.preventDefault();
-      var email = document.getElementById('popup-email').value;
-      if (email) {
-        sessionStorage.setItem('resourcesAccess', '1');
-        document.getElementById('resources-popup').classList.remove('popup-visible');
-        window.location.href = 'free-resources.html';
-      }
-    }
+
     // Show popup after 3 seconds on first visit
     window.addEventListener('DOMContentLoaded', function() {
+      var grantAccess = function () { sessionStorage.setItem('resourcesAccess', '1'); };
+      wireGateForm(document.getElementById('resources-gate-form'), grantAccess);
+      wireGateForm(document.getElementById('popup-gate-form'), function () {
+        grantAccess();
+        document.getElementById('resources-popup').classList.remove('popup-visible');
+      });
       var popup = document.getElementById('resources-popup');
       var closeBtn = document.getElementById('popup-close');
       var skipLink = document.getElementById('popup-skip-link');

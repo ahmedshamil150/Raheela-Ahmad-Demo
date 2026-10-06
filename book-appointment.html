@@ -77,7 +77,11 @@
   <section class="material-section reveal">
     <div class="booking-form-wrap">
       <h3>Request an Appointment</h3>
-      <form id="booking-form" onsubmit="return false;">
+      <form id="booking-form" action="https://formsubmit.co/raheelaahmadcoach@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/thank-you">
+        <input type="hidden" name="_subject" value="New Appointment Request - Raheelaa Ahmad Website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-group">
             <label for="book-name">Full Name</label>
@@ -161,6 +165,7 @@
       </form>
     </div>
   </section>
+  </main>
   <footer class="site-footer">
     <div class="footer-main">
       <div class="footer-brand">
@@ -203,6 +208,32 @@
     </div>
   </footer>
 <script src="js/main.js?v=8" defer></script><script src="js/scroll-reveal.js?v=6" defer></script>
+<script>
+  (function () {
+    var form = document.getElementById('booking-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
+        .then(function (res) {
+          if (!res.ok) throw new Error('server');
+          window.location.href = 'thank-you.html';
+        })
+        .catch(function (err) {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          if (err && err.message === 'server') {
+            var note = form.querySelector('.form-note');
+            if (note) { note.textContent = 'Something went wrong. Please try again.'; note.style.color = '#b3261e'; }
+            return;
+          }
+          form.submit();
+        });
+    });
+  })();
+</script>
 </body>
 </html>
 
