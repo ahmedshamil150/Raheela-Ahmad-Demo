@@ -166,10 +166,10 @@ to { transform: translateY(-14px) rotate(10deg); opacity: 0.5; }
 .media-row {display: grid;align-items: start;gap: clamp(14px, 2vw, 24px);width: min(1200px, calc(100vw - 48px));margin-bottom: clamp(30px, 4vw, 46px);margin-left: 50%;transform: translateX(-50%);}
 .media-row--pair {width: min(792px, calc(100vw - 48px));grid-template-columns: repeat(2, minmax(0, 1fr));}
 .media-row--trio {grid-template-columns: repeat(3, minmax(0, 1fr));}
-.media-row img {display: block;width: auto;height: auto;max-width: 100%;max-height: 520px;justify-self: center;object-fit: contain;border-radius: 14px;background: var(--cream);box-shadow: 0 16px 34px rgba(54, 57, 34, 0.14);transition: transform 0.35s ease, box-shadow 0.35s ease;}
+.media-row img {display: block;width: auto;height: auto;max-width: 100%;max-height: 520px;justify-self: center;object-fit: contain;border-radius: 14px;box-shadow: 0 16px 34px rgba(54, 57, 34, 0.14);transition: transform 0.35s ease, box-shadow 0.35s ease;}
 .media-row img:hover {transform: translateY(-4px);box-shadow: 0 24px 46px rgba(54, 57, 34, 0.2);}
 .media-row--pair img,
-.media-row--trio img {width: 100%;height: auto;aspect-ratio: 4 / 5;}
+.media-row--trio img {width: 100%;height: auto;aspect-ratio: 4 / 5;max-width: min(100%, 416px);object-fit: cover;}
 .media-caption {max-width: 780px;margin: 0 auto 20px;text-align: center;font-size: 17px;line-height: 1.75;}
 .media-caption--strong {margin-bottom: clamp(30px, 4vw, 46px);font-weight: 600;color: var(--olive-dark);}
 body.menu-open {overflow: hidden;}
@@ -210,8 +210,7 @@ body.menu-open {overflow: hidden;}
 .footer-column p {max-width: none;}
 }
 @media (max-width: 560px) {.media-row--pair {grid-template-columns: 1fr;}
-.media-row--trio {grid-template-columns: repeat(2, minmax(0, 1fr));}
-.media-row--trio img:last-child {grid-column: 1 / -1;max-width: none;}
+.media-row--trio {grid-template-columns: 1fr;}
 .media-caption {font-size: 16px;}
 }
 body[data-page="reiki"] .split-intro__media img {max-height: none;object-fit: contain;border-radius: 0;}

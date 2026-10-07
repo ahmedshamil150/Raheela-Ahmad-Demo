@@ -2131,7 +2131,6 @@ body[data-page="about"] .meet-content p {
   justify-self: center;
   object-fit: contain;
   border-radius: 14px;
-  background: var(--cream);
   box-shadow: 0 16px 34px rgba(54, 57, 34, 0.14);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -2146,6 +2145,8 @@ body[data-page="about"] .meet-content p {
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 5;
+  max-width: min(100%, 416px);
+  object-fit: cover;
 }
 
 .media-caption {
@@ -2426,12 +2427,7 @@ body.menu-open {
   }
 
   .media-row--trio {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .media-row--trio img:last-child {
-    grid-column: 1 / -1;
-    max-width: none;
+    grid-template-columns: 1fr;
   }
 
   .media-caption {
