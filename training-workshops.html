@@ -164,10 +164,12 @@ to { transform: translate3d(-26px, 18px, 0) scale(1.06); }
 to { transform: translateY(-14px) rotate(10deg); opacity: 0.5; }
 }
 .media-row {display: grid;align-items: start;gap: clamp(14px, 2vw, 24px);width: min(1200px, calc(100vw - 48px));margin-bottom: clamp(30px, 4vw, 46px);margin-left: 50%;transform: translateX(-50%);}
-.media-row--pair {grid-template-columns: repeat(2, minmax(0, 1fr));}
+.media-row--pair {width: min(792px, calc(100vw - 48px));grid-template-columns: repeat(2, minmax(0, 1fr));}
 .media-row--trio {grid-template-columns: repeat(3, minmax(0, 1fr));}
 .media-row img {display: block;width: auto;height: auto;max-width: 100%;max-height: 520px;justify-self: center;object-fit: contain;border-radius: 14px;background: var(--cream);box-shadow: 0 16px 34px rgba(54, 57, 34, 0.14);transition: transform 0.35s ease, box-shadow 0.35s ease;}
 .media-row img:hover {transform: translateY(-4px);box-shadow: 0 24px 46px rgba(54, 57, 34, 0.2);}
+.media-row--pair img,
+.media-row--trio img {width: 100%;height: auto;aspect-ratio: 4 / 5;}
 .media-caption {max-width: 780px;margin: 0 auto 20px;text-align: center;font-size: 17px;line-height: 1.75;}
 .media-caption--strong {margin-bottom: clamp(30px, 4vw, 46px);font-weight: 600;color: var(--olive-dark);}
 body.menu-open {overflow: hidden;}
@@ -239,7 +241,7 @@ body[data-page="yoga"] .benefits-grid .benefit-card:last-child {grid-column: 1 /
 @media (max-width: 400px) {body[data-page="yoga"] .benefits-grid .benefit-card:last-child {width: 100%;}
 }
 .visually-hidden {position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip: rect(0 0 0 0);white-space: nowrap;border: 0;}
-main > section + section,
+main > section + section:not(:has(.media-row)),
 .site-footer {content-visibility: auto;contain-intrinsic-size: auto 900px;}
 .cta-section {padding: 80px max(32px, 6vw);text-align: center;background: var(--cream);}
 .cta-section h2 {margin: 0 0 16px;color: var(--olive-dark);font-family: var(--serif);font-size: clamp(36px, 4vw, 56px);font-weight: 500;line-height: 1.05;}
@@ -375,9 +377,11 @@ to {opacity: 1;transform: translateY(0);}
 </div>
 
 <h2>Reiki Healing Circle</h2>
-<div class="media-row"><img src="images/workshopes image/workshop-8.webp" alt="Reiki Healing Circle gathering" width="760" height="950" loading="lazy" decoding="async"></div>
-<div class="media-row media-row--trio">
+<div class="media-row media-row--pair">
+    <img src="images/workshopes image/workshop-8.webp" alt="Reiki Healing Circle gathering" width="760" height="950" loading="lazy" decoding="async">
     <img src="images/workshopes image/reikihealingciecle.webp" alt="Reiki Healing Circle group practice" width="736" height="736" loading="lazy" decoding="async">
+</div>
+<div class="media-row media-row--pair">
     <img src="images/workshopes image/reikihealingcirle.webp" alt="Reiki Healing Circle session" width="704" height="1024" loading="lazy" decoding="async">
     <img src="images/workshopes image/reikihealingciele.webp" alt="Reiki Healing Circle hands-on healing" width="736" height="678" loading="lazy" decoding="async">
 </div>

@@ -2114,6 +2114,7 @@ body[data-page="about"] .meet-content p {
 }
 
 .media-row--pair {
+  width: min(792px, calc(100vw - 48px));
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -2138,6 +2139,13 @@ body[data-page="about"] .meet-content p {
 .media-row img:hover {
   transform: translateY(-4px);
   box-shadow: 0 24px 46px rgba(54, 57, 34, 0.2);
+}
+
+.media-row--pair img,
+.media-row--trio img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
 }
 
 .media-caption {
@@ -2765,7 +2773,7 @@ body[data-page="yoga"] .benefits-grid .benefit-card:last-child {
   border: 0;
 }
 
-main > section + section,
+main > section + section:not(:has(.media-row)),
 .site-footer {
   content-visibility: auto;
   contain-intrinsic-size: auto 900px;
