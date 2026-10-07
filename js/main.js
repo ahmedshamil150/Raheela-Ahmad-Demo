@@ -222,49 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
     headerObserver.observe(siteHeader);
   }
 
-  // Booking form: reject phone numbers that don't look real
-  var bookingForm = document.getElementById('booking-form');
-  var phoneInput = document.getElementById('book-phone');
-  var phoneError = document.getElementById('book-phone-error');
-
-  function phoneIssue(value) {
-    var raw = value.trim();
-    if (!raw) return '';
-    var digits = raw.replace(/[\s\-().]/g, '');
-    if (!/^\+?\d+$/.test(digits)) return 'Phone number can only contain digits, spaces and + - ( ).';
-    digits = digits.replace(/^\+/, '');
-    if (digits.indexOf('00') === 0) digits = digits.slice(2);
-    if (digits.length < 10 || digits.length > 15)
-      return 'Please enter a full phone number (10 to 15 digits, e.g. 0300 1234567).';
-    if (/^(\d)\1+$/.test(digits)) return 'That does not look like a real phone number.';
-    if (/^(0123456789|1234567890|123456789|9876543210|987654321)/.test(digits))
-      return 'That does not look like a real phone number.';
-    return '';
-  }
-
-  function showPhoneIssue() {
-    var issue = phoneIssue(phoneInput.value);
-    phoneError.textContent = issue;
-    phoneError.hidden = !issue;
-    phoneInput.setAttribute('aria-invalid', issue ? 'true' : 'false');
-    return !issue;
-  }
-
-  if (bookingForm && phoneInput && phoneError) {
-    phoneInput.addEventListener('input', function () {
-      if (phoneInput.getAttribute('aria-invalid') === 'true') showPhoneIssue();
-    });
-    phoneInput.addEventListener('blur', function () {
-      if (phoneInput.value.trim()) showPhoneIssue();
-    });
-    bookingForm.addEventListener('submit', function (event) {
-      if (!showPhoneIssue()) {
-        event.preventDefault();
-        phoneInput.focus();
-      }
-    });
-  }
-
   // Events ribbon
   var events = [
     'Couples Workshop — Oct 5, Karachi',
