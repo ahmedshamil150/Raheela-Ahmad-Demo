@@ -277,6 +277,8 @@ main > section + section,
 .form-submit {display: inline-block;padding: 14px 32px;border: none;border-radius: 24px;background: var(--olive-dark);color: #fff;font-family: var(--sans);font-size: 13px;font-weight: 600;letter-spacing: 0.04em;cursor: pointer;transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;}
 .form-submit:hover {background: var(--olive);transform: translateY(-2px);box-shadow: 0 8px 20px rgba(54, 57, 34, 0.18);}
 .form-note {margin-top: 16px;color: #8a8a7a;font-size: 12px;line-height: 1.6;}
+.field-error {margin: 6px 0 0;color: #a4472f;font-size: 13px;line-height: 1.5;}
+.form-group input[aria-invalid="true"] {border-color: #a4472f;box-shadow: 0 0 0 3px rgba(164, 71, 47, 0.12);}
 @media (max-width: 720px) {.offerings-grid {grid-template-columns: 1fr;}
 .form-row {grid-template-columns: 1fr;}
 .booking-form-wrap {padding: 28px 20px;}
@@ -455,7 +457,8 @@ to {opacity: 1;transform: translateY(0);}
         <div class="form-row">
           <div class="form-group">
             <label for="book-phone">Phone</label>
-            <input type="tel" id="book-phone" name="phone" placeholder="Your phone number">
+            <input type="tel" id="book-phone" name="phone" placeholder="Your phone number" autocomplete="tel" maxlength="25" aria-describedby="book-phone-error">
+            <p class="field-error" id="book-phone-error" role="alert" hidden></p>
           </div>
         </div>
         <div class="form-row">
@@ -567,7 +570,7 @@ to {opacity: 1;transform: translateY(0);}
       <a href="https://maps.app.goo.gl/JcrNkAEcWsWQtZV39" target="_blank" rel="noopener">Find us on Google</a>
     </div>
   </footer>
-<script src="js/main.js?v=8" defer></script><script src="js/scroll-reveal.js?v=6" defer></script>
+<script src="js/main.js?v=9" defer></script><script src="js/scroll-reveal.js?v=6" defer></script>
 <script>
   (function () {
     var form = document.getElementById('booking-form');

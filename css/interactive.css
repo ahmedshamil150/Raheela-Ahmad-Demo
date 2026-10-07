@@ -423,6 +423,18 @@
   line-height: 1.6;
 }
 
+.field-error {
+  margin: 6px 0 0;
+  color: #a4472f;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.form-group input[aria-invalid="true"] {
+  border-color: #a4472f;
+  box-shadow: 0 0 0 3px rgba(164, 71, 47, 0.12);
+}
+
 /* --- Share Buttons --- */
 .share-buttons {
   display: flex;
