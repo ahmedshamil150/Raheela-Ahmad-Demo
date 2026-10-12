@@ -624,6 +624,27 @@ to {opacity: 1;transform: translateY(0);}
       fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
         .then(function (res) {
           if (!res.ok) throw new Error('server');
+          var fd = new FormData(form);
+          var reply = fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              service_id: 'service_iqr5lkl',
+              template_id: 'template_bf1kx7u',
+              user_id: '3Fww4zdCLLqzgh7FA',
+              template_params: {
+                to_email: fd.get('email'),
+                name: fd.get('name'),
+                service: fd.get('service'),
+                session_format: fd.get('location'),
+                subject: 'Thank you for your booking request - Raheelaa Ahmad'
+              }
+            })
+          }).catch(function () {});
+          var timeout = new Promise(function (resolve) { setTimeout(resolve, 4000); });
+          return Promise.race([reply, timeout]);
+        })
+        .then(function () {
           window.location.href = 'thank-you.html';
         })
         .catch(function (err) {
