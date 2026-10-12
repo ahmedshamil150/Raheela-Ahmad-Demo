@@ -723,7 +723,7 @@ to {opacity: 1;transform: translateY(0);}
         <form class="resources-gate-form" id="resources-gate-form" action="https://formsubmit.co/raheelaahmadcoach@gmail.com" method="POST">
           <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/free-resources">
           <input type="hidden" name="_subject" value="New Free Resources Signup - Raheelaa Ahmad Website">
-          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_autoresponse" value="Thank you for signing up! Your free healing tools are ready: https://www.raheelaaahmad.com/free-resources - Enjoy, Raheelaa Ahmad">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <input type="email" id="gate-email" name="email" placeholder="your@email.com" required>
           <button type="submit" class="button button-solid">Get Free Access</button>
@@ -743,7 +743,7 @@ to {opacity: 1;transform: translateY(0);}
       <form class="resources-gate-form" id="popup-gate-form" action="https://formsubmit.co/raheelaahmadcoach@gmail.com" method="POST">
         <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/free-resources">
         <input type="hidden" name="_subject" value="New Free Resources Signup - Raheelaa Ahmad Website">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_autoresponse" value="Thank you for signing up! Your free healing tools are ready: https://www.raheelaaahmad.com/free-resources - Enjoy, Raheelaa Ahmad">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <input type="email" id="popup-email" name="email" placeholder="your@email.com" required>
         <button type="submit" class="button button-solid">Get Free Access</button>
@@ -798,31 +798,12 @@ to {opacity: 1;transform: translateY(0);}
   <script src="js/scroll-reveal.js?v=6" defer></script>
   <script>
     // Free resources gate logic
-    // Submit in the background so the visitor never leaves the site
+    // Native POST to FormSubmit, which handles spam checks and sends the
+    // visitor an instant auto-reply email before redirecting to _next.
     function wireGateForm(form, onBefore) {
       if (!form) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+      form.addEventListener('submit', function () {
         if (onBefore) onBefore();
-        var btn = form.querySelector('button[type="submit"]');
-        var label = btn ? btn.textContent : '';
-        if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
-        fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
-          .then(function (res) {
-            if (!res.ok) throw new Error('server');
-            window.location.href = 'free-resources.html';
-          })
-          .catch(function (err) {
-            if (btn) { btn.disabled = false; btn.textContent = label; }
-            if (err && err.message === 'server') {
-              var note = document.createElement('p');
-              note.textContent = 'Something went wrong. Please try again.';
-              note.style.cssText = 'margin:10px 0 0;color:#b3261e;font-size:13px;';
-              form.appendChild(note);
-              return;
-            }
-            form.submit();
-          });
       });
     }
 
