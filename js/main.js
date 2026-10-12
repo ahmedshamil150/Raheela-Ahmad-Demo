@@ -224,20 +224,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Events ribbon
   var events = [
-    'Couples Workshop — Oct 5, Karachi',
-    'Reiki Level 1 Training — Oct 12, Online',
-    'Women\'s Circle — Oct 18, Lahore',
-    'Numerology Masterclass — Oct 25, Online',
-    'Yoga Retreat — Nov 2-3, Murree',
-    'NLP Practitioner Training — Nov 8-10, Karachi',
-    'Free Meditation Session — Nov 15, Online'
+    'Reiki level 1 and level 2 workshop',
+    'Happy healing circle',
+    'Sufi breath work and healing circle - Coming soon'
   ];
 
   var ribbon = document.createElement('div');
   ribbon.className = 'events-ribbon';
   ribbon.innerHTML =
     '<div class="events-ribbon-track">' +
-      events.concat(events).map(function (e) {
+      events.concat(events, events, events).map(function (e) {
         return '<span class="events-ribbon-item">' + e + '</span>';
       }).join('<span class="events-ribbon-dot">&#9679;</span>') +
     '</div>';
