@@ -443,7 +443,7 @@ to {opacity: 1;transform: translateY(0);}
       <form id="booking-form" action="https://formsubmit.co/raheelaahmadcoach@gmail.com" method="POST">
         <input type="hidden" name="_next" value="https://www.raheelaaahmad.com/thank-you">
         <input type="hidden" name="_subject" value="New Appointment Request - Raheelaa Ahmad Website">
-        <input type="hidden" name="_autoresponse" value="Thank you for your appointment request! We have received your booking and will confirm it within 24 hours. Blessings, Raheelaa Ahmad">
+        <input type="hidden" name="_captcha" value="false">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-group">
@@ -615,7 +615,26 @@ to {opacity: 1;transform: translateY(0);}
       if (phoneInput && phoneError && !showPhoneIssue()) {
         e.preventDefault();
         phoneInput.focus();
+        return;
       }
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
+        .then(function (res) {
+          if (!res.ok) throw new Error('server');
+          window.location.href = 'thank-you.html';
+        })
+        .catch(function (err) {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          if (err && err.message === 'server') {
+            var note = form.querySelector('.form-note');
+            if (note) { note.textContent = 'Something went wrong. Please try again.'; note.style.color = '#b3261e'; }
+            return;
+          }
+          form.submit();
+        });
     });
   })();
 </script>
