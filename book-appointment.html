@@ -635,9 +635,12 @@ to {opacity: 1;transform: translateY(0);}
               user_id: '3Fww4zdCLLqzgh7FA',
               template_params: {
                 to_email: fd.get('email'),
+                email: fd.get('email'),
                 name: fd.get('name'),
                 service: fd.get('service'),
                 session_format: fd.get('location'),
+                message: fd.get('message'),
+                time: new Date().toLocaleString(),
                 subject: 'Thank you for your booking request - Raheelaa Ahmad'
               }
             })
