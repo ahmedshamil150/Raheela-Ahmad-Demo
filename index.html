@@ -811,6 +811,32 @@ to {opacity: 1;transform: translateY(0);}
         fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
           .then(function (res) {
             if (!res.ok) throw new Error('server');
+            var fd = new FormData(form);
+            var reply = fetch('https://api.emailjs.com/api/v1.0/email/send', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                service_id: 'service_iqr5lkl',
+                template_id: 'template_v8r8zva',
+                user_id: '3Fww4zdCLLqzgh7FA',
+                template_params: {
+                  to_email: fd.get('email'),
+                  name: 'Beautiful Soul',
+                  subject: 'Your free healing tools are ready - Raheelaa Ahmad',
+                  message: `Dear Beautiful Soul, 🌿
+
+We hope these free resources bring you comfort, clarity, and a little light on your healing journey. ✨
+
+We\u2019d love to hear your feedback! Your thoughts mean so much to us. 💗
+
+With love and warmth,`
+                }
+              })
+            }).catch(function () {});
+            var timeout = new Promise(function (resolve) { setTimeout(resolve, 4000); });
+            return Promise.race([reply, timeout]);
+          })
+          .then(function () {
             window.location.href = 'free-resources.html';
           })
           .catch(function (err) {
