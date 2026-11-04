@@ -808,10 +808,39 @@ to {opacity: 1;transform: translateY(0);}
         var btn = form.querySelector('button[type="submit"]');
         var label = btn ? btn.textContent : '';
         if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
-        fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
+        var fd = new FormData(form);
+        var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
+        var fsOpts = { method: 'POST', body: fd };
+        if (ctrl) fsOpts.signal = ctrl.signal;
+        fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', fsOpts)
           .then(function (res) {
+            clearTimeout(timer);
             if (!res.ok) throw new Error('server');
-            var fd = new FormData(form);
+          })
+          .catch(function () {
+            clearTimeout(timer);
+            return fetch('https://api.emailjs.com/api/v1.0/email/send', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                service_id: 'service_iqr5lkl',
+                template_id: 'template_bf1kx7u',
+                user_id: '3Fww4zdCLLqzgh7FA',
+                template_params: {
+                  to_email: 'raheelaahmadcoach@gmail.com',
+                  email: fd.get('email'),
+                  name: 'Free resources signup',
+                  service: '-',
+                  session_format: '-',
+                  message: 'New free resources signup: ' + fd.get('email') + ' at ' + new Date().toLocaleString(),
+                  time: new Date().toLocaleString(),
+                  subject: 'New Free Resources Signup - Raheelaa Ahmad Website'
+                }
+              })
+            }).then(function (r) { if (!r.ok) throw new Error('emailjs-owner'); });
+          })
+          .then(function () {
             var reply = fetch('https://api.emailjs.com/api/v1.0/email/send', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -841,16 +870,15 @@ With love and warmth,`
           .then(function () {
             window.location.href = 'free-resources.html';
           })
-          .catch(function (err) {
+          .catch(function () {
             if (btn) { btn.disabled = false; btn.textContent = label; }
-            if (err && err.message === 'server') {
-              var note = document.createElement('p');
-              note.textContent = 'Something went wrong. Please try again.';
-              note.style.cssText = 'margin:10px 0 0;color:#b3261e;font-size:13px;';
-              form.appendChild(note);
-              return;
-            }
-            form.submit();
+            var old = form.querySelector('.gate-form-error');
+            if (old && old.parentNode) old.parentNode.removeChild(old);
+            var note = document.createElement('p');
+            note.className = 'gate-form-error';
+            note.textContent = 'Could not send right now. Please try again in a few minutes.';
+            note.style.cssText = 'margin:10px 0 0;color:#b3261e;font-size:13px;';
+            form.appendChild(note);
           });
       });
     }

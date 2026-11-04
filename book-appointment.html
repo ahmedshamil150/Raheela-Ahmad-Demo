@@ -622,28 +622,56 @@ to {opacity: 1;transform: translateY(0);}
       var btn = form.querySelector('button[type="submit"]');
       var label = btn ? btn.textContent : '';
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
-      fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', { method: 'POST', body: new FormData(form) })
+      var fd = new FormData(form);
+
+      function emailjsSend(params) {
+        return fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            service_id: 'service_iqr5lkl',
+            template_id: 'template_bf1kx7u',
+            user_id: '3Fww4zdCLLqzgh7FA',
+            template_params: params
+          })
+        }).then(function (res) { if (!res.ok) throw new Error('emailjs'); });
+      }
+
+      // 1) Tell Raheelaa about the request. FormSubmit first; if their server is
+      // unreachable, send the same details by email instead so no booking is lost.
+      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
+      var fsOpts = { method: 'POST', body: fd };
+      if (ctrl) fsOpts.signal = ctrl.signal;
+      fetch('https://formsubmit.co/ajax/raheelaahmadcoach@gmail.com', fsOpts)
         .then(function (res) {
+          clearTimeout(timer);
           if (!res.ok) throw new Error('server');
-          var fd = new FormData(form);
-          var reply = fetch('https://api.emailjs.com/api/v1.0/email/send', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              service_id: 'service_iqr5lkl',
-              template_id: 'template_bf1kx7u',
-              user_id: '3Fww4zdCLLqzgh7FA',
-              template_params: {
-                to_email: fd.get('email'),
-                email: fd.get('email'),
-                name: fd.get('name'),
-                service: fd.get('service'),
-                session_format: fd.get('location'),
-                message: fd.get('message'),
-                time: new Date().toLocaleString(),
-                subject: 'Thank you for your booking request - Raheelaa Ahmad'
-              }
-            })
+        })
+        .catch(function () {
+          clearTimeout(timer);
+          return emailjsSend({
+            to_email: 'raheelaahmadcoach@gmail.com',
+            email: fd.get('email'),
+            name: fd.get('name'),
+            service: fd.get('service'),
+            session_format: fd.get('location'),
+            message: (fd.get('message') || '') + (fd.get('phone') ? ' | Phone: ' + fd.get('phone') : ''),
+            time: new Date().toLocaleString(),
+            subject: 'New Appointment Request - Raheelaa Ahmad Website'
+          });
+        })
+        .then(function () {
+          // 2) Auto-reply to the visitor (best effort - never blocks the booking)
+          var reply = emailjsSend({
+            to_email: fd.get('email'),
+            email: fd.get('email'),
+            name: fd.get('name'),
+            service: fd.get('service'),
+            session_format: fd.get('location'),
+            message: fd.get('message'),
+            time: new Date().toLocaleString(),
+            subject: 'Thank you for your booking request - Raheelaa Ahmad'
           }).catch(function () {});
           var timeout = new Promise(function (resolve) { setTimeout(resolve, 4000); });
           return Promise.race([reply, timeout]);
@@ -651,14 +679,26 @@ to {opacity: 1;transform: translateY(0);}
         .then(function () {
           window.location.href = 'thank-you.html';
         })
-        .catch(function (err) {
+        .catch(function () {
+          // Everything failed - stay on the page and offer a direct email instead
           if (btn) { btn.disabled = false; btn.textContent = label; }
-          if (err && err.message === 'server') {
-            var note = form.querySelector('.form-note');
-            if (note) { note.textContent = 'Something went wrong. Please try again.'; note.style.color = '#b3261e'; }
-            return;
+          var mailBody = [
+            'Name: ' + (fd.get('name') || ''),
+            'Email: ' + (fd.get('email') || ''),
+            'Phone: ' + (fd.get('phone') || ''),
+            'Service: ' + (fd.get('service') || ''),
+            'Format: ' + (fd.get('location') || ''),
+            '',
+            fd.get('message') || ''
+          ].join('\r\n');
+          var mailto = 'mailto:raheelaahmadcoach@gmail.com?subject=' +
+            encodeURIComponent('New Appointment Request - Raheelaa Ahmad Website') +
+            '&body=' + encodeURIComponent(mailBody);
+          var note = form.querySelector('.form-note');
+          if (note) {
+            note.innerHTML = 'Could not send right now. <a href="' + mailto + '">Email your request instead</a> or try again in a few minutes.';
+            note.style.color = '#b3261e';
           }
-          form.submit();
         });
     });
   })();
