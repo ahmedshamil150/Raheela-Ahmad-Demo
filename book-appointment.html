@@ -527,6 +527,7 @@ to {opacity: 1;transform: translateY(0);}
         </div>
         <button type="submit" class="form-submit">Send Booking Request</button>
         <p class="form-note">We will confirm your appointment within 24 hours via email or WhatsApp.</p>
+        <p class="form-note">Temporary note: while our form service is offline, Send opens WhatsApp with your details filled in &mdash; just press send in WhatsApp to confirm your request.</p>
       </form>
     </div>
   </section>
@@ -624,6 +625,32 @@ to {opacity: 1;transform: translateY(0);}
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
       var fd = new FormData(form);
 
+      // FormSubmit is temporarily offline, so the booking itself goes out on
+      // WhatsApp: open it while we are still inside the click so popup
+      // blockers allow it. The email chain below stays as a backup copy.
+      var waText = [
+        'New Appointment Request - Raheelaa Ahmad Website',
+        'From: raheelaaahmad.com booking form',
+        '',
+        'Name: ' + (fd.get('name') || ''),
+        'Email: ' + (fd.get('email') || ''),
+        'Phone: ' + (fd.get('phone') || ''),
+        'Service: ' + (fd.get('service') || ''),
+        'Format: ' + (fd.get('location') || ''),
+        '',
+        fd.get('message') || ''
+      ].join('\n');
+      var waUrl = 'https://wa.me/923334506846?text=' + encodeURIComponent(waText);
+      try {
+        var waWin = window.open(waUrl, '_blank');
+        if (waWin) { try { waWin.opener = null; } catch (ignored) {} }
+      } catch (ignored) {}
+      if (btn) btn.textContent = 'Opening WhatsApp...';
+      var waNote = form.querySelector('.form-note');
+      if (waNote) {
+        waNote.innerHTML = 'Almost done &mdash; your details are ready in WhatsApp. Press <strong>Send</strong> in WhatsApp to confirm your booking. <a href="' + waUrl + '" target="_blank" rel="noopener">Open WhatsApp again</a> if it did not open by itself.';
+      }
+
       function emailjsSend(params) {
         return fetch('https://api.emailjs.com/api/v1.0/email/send', {
           method: 'POST',
@@ -680,7 +707,8 @@ to {opacity: 1;transform: translateY(0);}
           window.location.href = 'thank-you.html';
         })
         .catch(function () {
-          // Everything failed - stay on the page and offer a direct email instead
+          // Email backup failed too - WhatsApp still carries the booking, so
+          // stay on the page with the WhatsApp instruction plus an email option.
           if (btn) { btn.disabled = false; btn.textContent = label; }
           var mailBody = [
             'Name: ' + (fd.get('name') || ''),
@@ -696,7 +724,7 @@ to {opacity: 1;transform: translateY(0);}
             '&body=' + encodeURIComponent(mailBody);
           var note = form.querySelector('.form-note');
           if (note) {
-            note.innerHTML = 'Could not send right now. <a href="' + mailto + '">Email your request instead</a> or try again in a few minutes.';
+            note.innerHTML += ' Email copy also failed &mdash; or <a href="' + mailto + '">send your request by email instead</a>.';
             note.style.color = '#b3261e';
           }
         });
